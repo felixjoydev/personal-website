@@ -206,7 +206,8 @@ body {
     flex-direction: column;
     gap: 32px;
     align-items: center;
-    width: 430px;
+    width: 100%;
+    max-width: 430px;
 }
 
 .cta-tab {
