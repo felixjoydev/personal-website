@@ -11,12 +11,13 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 24px 0;
+    padding: 24px 16px;
 }
 
 .main-container {
     background-color: #ebebeb;
-    width: 472.059px;
+    width: 100%;
+    max-width: 472.059px;
     border-radius: 30px;
     padding: 24px 32px;
     display: flex;

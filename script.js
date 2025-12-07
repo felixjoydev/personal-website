@@ -32,7 +32,7 @@ function updateTime() {
     // Replace colon with span for blinking effect
     const [hours, minutes] = irelandTime.split(':');
     const colon = seconds % 2 === 0 ? ':' : '<span style="opacity: 0">:</span>';
-    document.querySelector('.time-text').innerHTML = hours + colon + minutes + ' IST';
+    document.querySelector('.time-text').innerHTML = hours + colon + minutes + ' GMT';
 }
 
 updateTime();
