@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Joy - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="https://www.figma.com/api/mcp/asset/8225d774-c8a8-4c9f-a0a8-3d4b23ad6ec8" alt="Felix Joy Logo" class="logo-image">
+            </div>
+            <div class="nav-right">
+                <div class="live-time">
+                    <img src="https://www.figma.com/api/mcp/asset/0b6eb9fc-2f57-4493-898b-323ce8774bea" alt="" class="globe-icon">
+                    <span class="time-text">12:00 PST</span>
+                </div>
+                <div class="availability">
+                    <div class="status-icon"></div>
+                    <span class="availability-text">available</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Marquee -->
+        <div class="marquee-wrapper">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <span class="marquee-text">Websites</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">product</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">branding</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">apps</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">landing page</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">Websites</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">product</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">branding</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">apps</span>
+                    <img src="https://www.figma.com/api/mcp/asset/c866e0ea-25bf-4aef-a8ac-9ac88ccf3b04" alt="" class="star-icon">
+                    <span class="marquee-text">landing page</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Main Content -->
+            <div class="main-content">
+                <p class="intro-text">
+                    I'm <span class="highlight">Felix Joy</span>, a multi-disciplinary make based in Dublin, Ireland. My work spans across  product design, to web design and branding.
+                </p>
+            </div>
+        </div>
+
+        <!-- Divider with Badge -->
+        <div class="divider">
+            <div class="badge">
+                <span class="badge-text">design 0 → </span><span class="badge-highlight">1</span>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- CTA Section -->
+            <div class="cta-section">
+            <div class="cta-tab">
+                <button class="cta-button active" id="bookCallBtn">Book a call</button>
+                <button class="cta-button" id="sendMessageBtn">Send a message</button>
+            </div>
+            
+            <!-- Calendar Widget -->
+            <div class="cal-widget active" id="calWidget">
+                <div style="width:100%;height:100%;overflow:auto;background-color:#EBEBEB" id="my-cal-inline-15min"></div>
+            </div>
+
+            <!-- Message Form -->
+            <form class="message-widget" id="messageWidget">
+                <div class="message-inputs">
+                    <div class="name-email-fields">
+                        <input type="text" name="name" placeholder="Name" class="message-input" required />
+                        <input type="email" name="email" placeholder="Email" class="message-input" required />
+                    </div>
+                    <textarea name="message" placeholder="Message" class="message-textarea" required></textarea>
+                </div>
+                <button type="submit" class="send-button">Send</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
