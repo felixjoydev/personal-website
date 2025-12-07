@@ -11,12 +11,12 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 48px 0;
+    padding: 24px 0;
 }
 
 .main-container {
     background-color: #ebebeb;
-    width: 484.059px;
+    width: 472.059px;
     border-radius: 30px;
     padding: 24px 32px;
     display: flex;
@@ -291,6 +291,12 @@ body {
     display: flex;
     gap: 10px;
     width: 100%;
+}
+
+@media (max-width: 500px) {
+    .name-email-fields {
+        flex-direction: column;
+    }
 }
 
 .message-input {
