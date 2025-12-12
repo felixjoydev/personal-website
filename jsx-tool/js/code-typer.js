@@ -358,7 +358,7 @@ function reloadConsoleState() {
     if (chatBox && !document.querySelector('.chat-attachment')) {
         const chatAttachment = document.createElement('div');
         chatAttachment.className = 'chat-attachment';
-        chatAttachment.innerHTML = '<img src="../images/screenshot-attachment.svg" alt="Button screenshot" class="attachment-image">';
+        chatAttachment.innerHTML = '<img src="/jsx-tool/images/screenshot-attachment.svg" alt="Button screenshot" class="attachment-image">';
         chatBox.insertBefore(chatAttachment, chatBox.firstChild);
     }
 
