@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX Tool - Ship pixel-perfect React UI faster</title>
+    <link rel="stylesheet" href="css/jsx-tool.css">
+    <link rel="stylesheet" href="css/browser-mockup.css">
+    <link rel="stylesheet" href="css/console-component.css">
+    <!-- GSAP for gradient animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="js/scrollbar-handler.js"></script>
+    <script src="js/code-typer.js"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Animated Gradient Background -->
+        <div class="gradient-background">
+            <div class="gradient-orb gradient-orb-1"></div>
+            <div class="gradient-orb gradient-orb-2"></div>
+            <div class="gradient-orb gradient-orb-3"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="112" height="25" viewBox="0 0 112 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_i_92_9510)">
+                        <path d="M18.54 0C18.96 3.82151e-05 19.3687 0.0485002 19.7617 0.137695L19.0244 1.00586L20.4902 2.25195L21.6084 0.935547C22.1455 1.29731 22.6144 1.75181 22.9941 2.27539L21.9561 3.49805L23.4219 4.74414L23.8838 4.19922C23.985 4.61636 24.04 5.05175 24.04 5.5V18.54C24.04 18.9734 23.9874 19.3944 23.8926 19.7988L23.4219 19.2451L21.9561 20.4912L23.0137 21.7354C22.6369 22.2619 22.1709 22.7197 21.6357 23.085L20.4902 21.7373L19.0244 22.9834L19.7979 23.8936C19.3938 23.9882 18.9729 24.04 18.54 24.04H5.5C5.1165 24.04 4.74223 24.0005 4.38086 23.9258L5.18262 22.9834L3.7168 21.7373L2.51074 23.1553C1.96741 22.8026 1.4889 22.3584 1.10059 21.8418L2.25 20.4912L0.78418 19.2451L0.182617 19.9512C0.0633885 19.5008 4.40278e-05 19.0278 0 18.54V5.5C3.9932e-07 4.99804 0.0673903 4.51183 0.193359 4.0498L0.78418 4.74414L2.25 3.49805L1.12207 2.1709C1.51321 1.65732 1.99298 1.21537 2.53809 0.866211L3.7168 2.25195L5.18262 1.00586L4.41797 0.106445C4.76782 0.0366486 5.12963 2.31473e-08 5.5 0H18.54ZM2.25098 20.4912L3.7168 21.7373L4.96289 20.2715L3.49707 19.0254L2.25098 20.4912ZM19.2441 20.2715L20.4902 21.7373L21.9561 20.4912L20.71 19.0254L19.2441 20.2715ZM2.25098 3.49805L3.49707 4.96387L4.96289 3.71777L3.7168 2.25195L2.25098 3.49805ZM19.2441 3.71777L20.71 4.96387L21.9561 3.49805L20.4902 2.25195L19.2441 3.71777Z" fill="url(#paint0_linear_92_9510)"/>
+                    </g>
+                    <path d="M7.94154 17.3604C10.8744 17.4916 13.2568 17.493 16.0781 17.3755C14.9504 18.2313 13.5446 18.7395 12.0198 18.7395C10.486 18.7395 9.07253 18.2253 7.94154 17.3604ZM5.68076 14.2541C10.5731 14.5466 13.6826 14.5425 18.351 14.2754C18.1894 14.7288 17.9808 15.1597 17.7305 15.5623C13.5241 15.311 10.562 15.3204 6.32257 15.5843C6.06228 15.1692 5.84626 14.7236 5.68076 14.2541ZM5.3441 11.2468C10.5545 11.5673 13.7262 11.5623 18.6975 11.2691C18.7249 11.5155 18.7398 11.7658 18.7398 12.0195C18.7398 12.2277 18.7295 12.4337 18.7109 12.6371C13.6306 12.302 10.4557 12.3137 5.33065 12.6623C5.31057 12.4508 5.2998 12.2364 5.2998 12.0195C5.2998 11.7582 5.31507 11.5004 5.3441 11.2468ZM6.3672 8.38358C10.6438 8.62259 13.5931 8.62102 17.6846 8.40261C17.9292 8.78505 18.1357 9.19417 18.2998 9.62422C13.5869 9.32491 10.4868 9.33531 5.7303 9.6485C5.89857 9.20238 6.11253 8.77867 6.3672 8.38358ZM12.0198 5.29953C13.4897 5.29953 14.8492 5.77173 15.9553 6.57233C13.1828 6.44771 10.8535 6.45447 8.05868 6.5907C9.16943 5.77886 10.5386 5.29953 12.0198 5.29953Z" fill="#D9D9D9"/>
+                    <path d="M56.5607 11.7669L61.0805 18.4019H59.0014L55.5302 13.0505L51.9325 18.4019H49.998L54.4997 11.7669L50.3777 5.63813H52.4387L55.5483 10.5195L58.7844 5.63813H60.7008L56.5607 11.7669Z" fill="white"/>
+                    <path d="M44.1329 18.6912C41.7465 18.6912 39.7397 17.7872 39.125 15.6539L40.6798 15.0934C41.0775 16.7025 42.5781 17.2268 44.1871 17.2268C45.9589 17.2268 47.5498 16.594 47.5498 15.003C47.5498 13.3579 45.7781 12.8697 43.8798 12.472C41.7645 12.0381 39.4504 11.4415 39.4504 8.94658C39.4504 6.54208 41.6561 5.34886 44.2233 5.34886C46.3747 5.34886 48.0922 6.21665 48.725 8.36806L47.1882 8.94658C46.7905 7.24716 45.5792 6.79518 44.151 6.79518C42.5781 6.79518 41.0956 7.35563 41.0956 8.82003C41.0956 10.2844 42.6685 10.6641 44.4221 10.9714C46.6639 11.3692 49.1769 12.0743 49.1769 14.9127C49.1769 17.4618 46.9351 18.6912 44.1329 18.6912Z" fill="white"/>
+                    <path d="M36.9767 5.63813V14.298C36.9767 17.1183 35.5123 18.6189 33.144 18.6189C31.3903 18.6189 29.727 17.9138 29.04 15.5093L30.6129 15.0392C30.9745 16.4494 31.8423 17.1725 33.0897 17.1725C34.3914 17.1725 35.2592 16.1782 35.2592 14.2799V7.06637H30.3779V5.63813H36.9767Z" fill="white"/>
+                    <path d="M104.908 16.8652H103.371V5.63813H104.908V16.8652ZM111.055 16.8652V18.4019H104.908V16.8652H111.055Z" fill="white"/>
+                    <path d="M95.1815 18.6912C91.6018 18.6912 89.0889 15.7081 89.0889 12.0019C89.0889 8.15111 91.6018 5.34886 95.1815 5.34886C98.7973 5.34886 101.274 8.15111 101.274 12.0019C101.274 15.7081 98.7973 18.6912 95.1815 18.6912ZM95.1815 17.2448C97.821 17.2448 99.5566 14.8765 99.5566 12.0019C99.5566 8.98274 97.821 6.79518 95.1815 6.79518C92.56 6.79518 90.8064 8.98274 90.8064 12.0019C90.8064 14.8765 92.56 17.2448 95.1815 17.2448Z" fill="white"/>
+                    <path d="M81.6219 18.6912C78.0423 18.6912 75.5293 15.7081 75.5293 12.0019C75.5293 8.15111 78.0423 5.34886 81.6219 5.34886C85.2377 5.34886 87.7145 8.15111 87.7145 12.0019C87.7145 15.7081 85.2377 18.6912 81.6219 18.6912ZM81.6219 17.2448C84.2615 17.2448 85.997 14.8765 85.997 12.0019C85.997 8.98274 84.2615 6.79518 81.6219 6.79518C79.0005 6.79518 77.2468 8.98274 77.2468 12.0019C77.2468 14.8765 79.0005 17.2448 81.6219 17.2448Z" fill="white"/>
+                    <path d="M65.0801 5.63813H75.2586V7.08445H71.0281V18.4019H69.3106V7.08445H65.0801V5.63813Z" fill="white"/>
+                    <defs>
+                        <filter id="filter0_i_92_9510" x="0" y="0" width="24.04" height="25.04" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                            <feOffset dy="1"/>
+                            <feGaussianBlur stdDeviation="1"/>
+                            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                            <feColorMatrix type="matrix" values="0 0 0 0 0.170776 0 0 0 0 0.0469117 0 0 0 0 0.324031 0 0 0 0.5 0"/>
+                            <feBlend mode="normal" in2="shape" result="effect1_innerShadow_92_9510"/>
+                        </filter>
+                        <linearGradient id="paint0_linear_92_9510" x1="12.02" y1="0.480801" x2="12.02" y2="23.5592" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#5B1EA7"/>
+                            <stop offset="1" stop-color="#380F6C"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#docs">Docs</a>
+            </nav>
+            <div class="header-cta">
+                <button class="btn-sign-in">Sign in</button>
+                <button class="btn-install">
+                    <img src="https://www.figma.com/api/mcp/asset/e5c1cd14-1ad0-46ab-8f0c-f9f523c3923a" alt="Chrome">
+                    Install
+                </button>
+            </div>
+        </header>
+
+        <!-- Hero Content -->
+        <div class="hero-wrapper">
+            <!-- Y Combinator Badge -->
+            <div class="yc-chip">
+                <p>Backed by</p>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_92_9561)">
+                        <path d="M0 0H20V20H0V0Z" fill="#FF5A00"/>
+                        <path d="M5.91016 4.97872C5.99581 4.97872 6.08146 4.93617 6.16712 4.93617C6.59538 4.93617 7.02365 4.93617 7.45191 4.97872C7.53757 4.97872 7.53757 5.02127 7.58039 5.06383C8.22279 6.38298 8.86519 7.74468 9.55041 9.10638C9.67889 9.40425 9.80737 9.65957 9.97868 9.91489C10.1072 9.70213 10.2356 9.48936 10.3641 9.23404C11.0922 7.78723 11.8202 6.38298 12.5483 4.93617C13.0194 4.93617 13.4905 4.89361 14.0044 4.97872C13.9187 5.27659 13.7474 5.48936 13.6189 5.74468C12.6768 7.57447 11.6917 9.40425 10.7067 11.234C10.6639 11.3191 10.6639 11.3617 10.6639 11.4468C10.6639 12.766 10.6639 14.0851 10.6639 15.3617C10.1928 15.3617 9.72172 15.3617 9.25063 15.3617C9.25063 14.0851 9.25063 12.8085 9.25063 11.5319C9.25063 11.4043 9.25063 11.234 9.16497 11.1064C8.26562 9.44681 7.40909 7.78723 6.50973 6.0851C6.33842 5.74468 6.12429 5.3617 5.91016 4.97872Z" fill="#FFFEFE"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_92_9561">
+                            <rect width="20" height="20" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Hero Text -->
+            <div class="hero-content-wrapper">
+                <div class="hero-content">
+                    <h1 class="hero-title">Ship pixel-perfect React UI faster</h1>
+                    <p class="hero-subtitle">Edit JSX and CSS directly in Chrome, sync changes back to your repo, and stop context-switching between DevTools and your IDE</p>
+                </div>
+                <button class="btn-cta">
+                    <img src="https://www.figma.com/api/mcp/asset/e5c1cd14-1ad0-46ab-8f0c-f9f523c3923a" alt="Chrome">
+                    Install Chrome Extension
+                </button>
+            </div>
+        </div>
+
+        <!-- Browser Section with Beam Shader -->
+        <div class="browser-and-info-wrapper">
+        <div class="browser-section-wrapper">
+        <!-- Beam Shader Background (full width, no padding) -->
+        <div class="beam-shader">
+            <div class="beam-layer beam-layer-1"></div>
+            <div class="beam-layer beam-layer-2"></div>
+            <div class="beam-layer beam-layer-3"></div>
+            <div class="beam-layer beam-layer-4"></div>
+            <div class="beam-layer beam-layer-5"></div>
+            <div class="beam-layer beam-layer-6"></div>
+            <div class="beam-layer beam-layer-7"></div>
+            <div class="beam-layer beam-layer-8"></div>
+            <div class="beam-layer beam-layer-9"></div>
+            <div class="beam-layer beam-layer-10"></div>
+            <div class="beam-layer beam-layer-11"></div>
+            <div class="beam-layer beam-layer-12"></div>
+            <div class="beam-layer beam-layer-13"></div>
+            <div class="beam-layer beam-layer-14"></div>
+            <div class="beam-layer beam-layer-15"></div>
+            <div class="beam-layer beam-layer-16"></div>
+            <div class="beam-layer beam-layer-17"></div>
+        </div>
+        
+        <!-- Browser Content with padding -->
+        <div class="browser-content-wrapper">
+            <div class="browser-component" id="browserSection">
+            <!-- Browser Window -->
+            <div class="browser-window-backdrop">
+                <!-- Window Header -->
+                <div class="window-header">
+                    <div class="window-actions">
+                        <img src="https://www.figma.com/api/mcp/asset/d82ba7b4-a813-4330-8de5-781ca5e0101f" alt="" class="window-actions-img">
+                    </div>
+                    <div class="window-title">
+                        <img src="https://www.figma.com/api/mcp/asset/abdd04d0-3112-4605-ab69-56cde20ebb8c" alt="" class="window-icon">
+                        <p class="window-title-text">My Project</p>
+                    </div>
+                </div>
+
+                <!-- Address Bar -->
+                <div class="address-bar-wrapper">
+                    <div class="address-bar-content">
+                        <div class="address-bar-actions">
+                            <div class="nav-button nav-disabled">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.4">
+                                        <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="nav-button nav-disabled">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.4">
+                                        <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="refresh-button">
+                                <img src="https://www.figma.com/api/mcp/asset/5f9c0364-bb40-4e86-b2a5-3c4eaefaa762" alt="" class="refresh-icon">
+                            </div>
+                        </div>
+                        <div class="address-bar">
+                            <img src="https://www.figma.com/api/mcp/asset/0b7b9aa5-70b2-40ec-9704-7c94932b889d" alt="" class="address-icon">
+                            <p class="address-text">localhost:3000</p>
+                        </div>
+                    </div>
+                    <div class="star-button">
+                        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.6">
+                                <path d="M7.99967 1.33331L10.0597 5.50226L14.6663 6.17488L11.333 9.41814L12.1197 14L7.99967 11.8356L3.87967 14L4.66634 9.41814L1.33301 6.17488L5.93967 5.50226L7.99967 1.33331Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Browser Content -->
+                <div class="browser-content">
+                    <!-- Main Content Area -->
+                    <div class="main-content-area">
+                        <!-- Header -->
+                        <div class="acme-header">
+                            <div class="acme-logo-wrapper">
+                                <img src="https://www.figma.com/api/mcp/asset/301783b8-78e8-41c2-8fa2-9417b3d1ee10" alt="" class="acme-logo">
+                                <p class="acme-title">Acme</p>
+                            </div>
+                            <button class="sign-up-btn" id="signUpBtn">
+                                <div class="button-selection-overlay">
+                                    <div class="selection-line selection-line-top"></div>
+                                    <div class="selection-line selection-line-right"></div>
+                                    <div class="selection-line selection-line-bottom"></div>
+                                    <div class="selection-line selection-line-left"></div>
+                                </div>
+                                <span>Sign up</span>
+                            </button>
+                        </div>
+
+                        <!-- Card Container -->
+                        <div class="card-container">
+                            <!-- Updated Login Card (Active State) -->
+                            <div class="login-card login-card-updated active">
+                                <div class="login-title-wrapper">
+                                    <svg width="46" height="40" viewBox="0 0 46 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="login-icon">
+                                        <g clip-path="url(#clip0_61_1885)">
+                                            <path d="M12.2451 25C17.2571 25.0002 21.4948 28.7107 22.1572 33.6787L23 40H13L11.5586 36.6367C10.6131 34.4307 8.44399 33.0001 6.04395 33H0L4.60645 25H12.2451ZM46 33H39.9561C37.556 33.0001 35.3869 34.4307 34.4414 36.6367L34 40H23L23.8428 33.6787C24.5052 28.7107 28.7429 25.0002 33.7549 25H41.3936L46 33ZM22.6035 9.52441C22.2609 17.7407 15.746 24.3599 7.53613 24.832L4.60645 25L19 0H23L22.6035 9.52441ZM27 0L41.3936 25L38.4648 24.832C30.2549 24.36 23.7391 17.7408 23.3965 9.52441L23 0H27Z" fill="#8947DB"/>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_61_1885">
+                                                <rect width="46" height="40" fill="white"/>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <h1 class="login-heading">Log in to Acme</h1>
+                                </div>
+                                <div class="input-wrapper">
+                                    <div class="input-field">
+                                        <p class="input-label">Your email</p>
+                                        <div class="input-box-updated">
+                                            <p class="input-placeholder">name@email.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="input-field">
+                                        <p class="input-label">Your password</p>
+                                        <div class="input-box-updated-empty"></div>
+                                    </div>
+                                </div>
+                                <button class="login-button-updated">Login</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Console Overlay -->
+                    <div class="console-overlay" id="consoleOverlay">
+                        <!-- Console Component directly embedded -->
+                        <div class="console-jsx-component">
+                            <!-- Vertical Resize Handle -->
+                            <div class="resize-handle-top"></div>
+                            <!-- Console Header -->
+                            <div class="console-header-wrapper">
+                                <div class="console-header-left-wrapper">
+                                    <div class="console-header-left">
+                                        <svg class="header-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.33333 14V7.33333H14V8.66667H9.6L14 13.0667L13.0667 14L8.66667 9.6V14H7.33333ZM4.66667 14V12.6667H6V14H4.66667ZM3.33333 3.33333H2C2 2.96667 2.13056 2.65278 2.39167 2.39167C2.65278 2.13056 2.96667 2 3.33333 2V3.33333ZM4.66667 3.33333V2H6V3.33333H4.66667ZM7.33333 3.33333V2H8.66667V3.33333H7.33333ZM10 3.33333V2H11.3333V3.33333H10ZM12.6667 3.33333V2C13.0333 2 13.3472 2.13056 13.6083 2.39167C13.8694 2.65278 14 2.96667 14 3.33333H12.6667ZM3.33333 12.6667V14C2.96667 14 2.65278 13.8694 2.39167 13.6083C2.13056 13.3472 2 13.0333 2 12.6667H3.33333ZM2 11.3333V10H3.33333V11.3333H2ZM2 8.66667V7.33333H3.33333V8.66667H2ZM2 6V4.66667H3.33333V6H2ZM12.6667 6V4.66667H14V6H12.6667Z" fill="#9284A3"/>
+                                        </svg>
+                                        <img src="https://www.figma.com/api/mcp/asset/37cd1fc8-252b-448f-93e6-00227c2cf78d" alt="" class="header-icon">
+                                    </div>
+                                    <div class="divider-vertical"></div>
+                                    <div class="console-header-tabs">
+                                        <p class="tab-item">Elements</p>
+                                        <div class="jsx-tab-highlighted">
+                                            <div class="jsx-tab-content">
+                                                <img src="https://www.figma.com/api/mcp/asset/fe7203d7-51fb-40ac-a1d3-82c4fd3a2224" alt="" class="jsx-icon-small">
+                                                <p class="tab-text-active">JSX Tool</p>
+                                            </div>
+                                            <div class="tab-selection"></div>
+                                        </div>
+                                        <p class="tab-item">Console</p>
+                                        <p class="tab-item">Sources</p>
+                                        <p class="tab-item">Network</p>
+                                        <p class="tab-item">Performance</p>
+                                        <p class="tab-item">Memory</p>
+                                        <p class="tab-item">Application</p>
+                                    </div>
+                                </div>
+                                <div class="console-header-right">
+                                    <img src="https://www.figma.com/api/mcp/asset/59b63487-701c-49b4-a8f9-b57bbc811a53" alt="" class="header-icon">
+                                    <img src="https://www.figma.com/api/mcp/asset/e55f6937-b950-4046-b20f-13ea79e40e7d" alt="" class="header-icon">
+                                    <img src="https://www.figma.com/api/mcp/asset/c1242ee1-41cc-4244-a6ca-ecfa81ba28eb" alt="" class="header-icon">
+                                </div>
+                            </div>
+
+                            <!-- JSX Tool Wrapper -->
+                            <div class="jsx-tool-wrapper">
+                                <!-- Left Panel -->
+                                <div class="jsx-left">
+                                    <div class="jsx-controls">
+                                        <svg class="icon-inspect" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.46973 7.46973C7.68183 7.25762 7.9998 7.19238 8.27832 7.30371L14.9453 9.9707C15.2304 10.0848 15.4175 10.3609 15.417 10.668C15.4164 10.9752 15.2281 11.2513 14.9424 11.3643L12.377 12.377L11.3643 14.9424C11.2513 15.2281 10.9752 15.4164 10.668 15.417C10.3609 15.4175 10.0848 15.2304 9.9707 14.9453L7.30371 8.27832C7.19238 7.9998 7.25762 7.68183 7.46973 7.46973ZM12.667 1.25C13.2194 1.25009 13.749 1.46973 14.1396 1.86035C14.5303 2.25098 14.7499 2.78059 14.75 3.33301V7.33301C14.75 7.74722 14.4142 8.08301 14 8.08301C13.5858 8.08301 13.25 7.74722 13.25 7.33301V3.33301C13.2499 3.17842 13.1884 3.03022 13.0791 2.9209C12.9698 2.81158 12.8216 2.75009 12.667 2.75H3.33301C3.17842 2.75009 3.03022 2.81158 2.9209 2.9209C2.81158 3.03022 2.75009 3.17842 2.75 3.33301V12.667C2.75009 12.8216 2.81158 12.9698 2.9209 13.0791C3.03022 13.1884 3.17842 13.2499 3.33301 13.25H7.33301C7.74722 13.25 8.08301 13.5858 8.08301 14C8.08301 14.4142 7.74722 14.75 7.33301 14.75H3.33301C2.78059 14.7499 2.25098 14.5303 1.86035 14.1396C1.46973 13.749 1.25009 13.2194 1.25 12.667V3.33301C1.25009 2.78059 1.46973 2.25098 1.86035 1.86035C2.25098 1.46973 2.78059 1.25009 3.33301 1.25H12.667ZM10.6621 12.6357L11.1025 11.5244L11.1348 11.4541C11.2177 11.2946 11.3557 11.1693 11.5244 11.1025L12.6357 10.6621L9.3457 9.3457L10.6621 12.6357Z" fill="#956EBD"/>
+                                        </svg>
+                                        <img src="https://www.figma.com/api/mcp/asset/3df303ec-96ad-4201-b72a-c76b5d6fb34e" alt="" class="control-icon">
+                                        <svg class="control-icon control-icon-dim" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.4">
+                                                <path d="M5.3335 14H10.6668M8.00016 11.3333V14M2.66683 2H13.3335C14.0699 2 14.6668 2.59695 14.6668 3.33333V10C14.6668 10.7364 14.0699 11.3333 13.3335 11.3333H2.66683C1.93045 11.3333 1.3335 10.7364 1.3335 10V3.33333C1.3335 2.59695 1.93045 2 2.66683 2Z" stroke="#956EBD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="main-tree-branch">
+                                        <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                            <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                            <p class="tree-text">src</p>
+                                        </div>
+                                        <div class="sub-tree-branches tree-children">
+                                            <div class="pages-tree-branch">
+                                                <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                                    <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                                    <p class="tree-text">app</p>
+                                                </div>
+                                                <div class="tree-item tree-children">
+                                                    <p class="tree-text">LoginPage.jsx</p>
+                                                </div>
+                                            </div>
+                                            <div class="opened-tree-branch">
+                                                <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                                    <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                                    <p class="tree-text">components</p>
+                                                </div>
+                                                <div class="opened-tree-items-wrapper tree-children">
+                                                    <div class="tree-line-wrapper">
+                                                        <img src="https://www.figma.com/api/mcp/asset/bc34706e-da2d-4c87-8715-937eefb074ac" alt="" class="tree-line">
+                                                    </div>
+                                                    <div class="opened-tree-items">
+                                                        <div class="tree-item-with-icon">
+                                                            <img src="https://www.figma.com/api/mcp/asset/0c8e293b-d4d3-44e4-bc58-d18b2556eac7" alt="" class="react-icon">
+                                                            <p class="tree-text">Header.jsx</p>
+                                                        </div>
+                                                        <div class="tree-item-with-icon">
+                                                            <img src="https://www.figma.com/api/mcp/asset/0c8e293b-d4d3-44e4-bc58-d18b2556eac7" alt="" class="react-icon">
+                                                            <p class="tree-text">LoginForm.jsx</p>
+                                                        </div>
+                                                        <div class="tree-item-with-icon">
+                                                            <img src="https://www.figma.com/api/mcp/asset/0c8e293b-d4d3-44e4-bc58-d18b2556eac7" alt="" class="react-icon">
+                                                            <p class="tree-text">Input.jsx</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ui-tree-branch">
+                                                <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                                    <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                                    <p class="tree-text">ui</p>
+                                                </div>
+                                                <div class="tree-item-with-icon tree-item-selected tree-children">
+                                                    <img src="https://www.figma.com/api/mcp/asset/43cf5f74-e35d-4a24-a83b-b4515cece8a4" alt="" class="react-icon">
+                                                    <p class="tree-text-selected">Button.jsx</p>
+                                                </div>
+                                            </div>
+                                            <div class="styles-tree-branch">
+                                                <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                                    <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                                    <p class="tree-text">styles</p>
+                                                </div>
+                                                <div class="tree-item tree-children">
+                                                    <p class="tree-text">button.css</p>
+                                                    <p class="tree-text">globals.css</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="resize-handle resize-handle-right"></div>
+                                </div>
+
+                                <!-- Center Panel -->
+                                <div class="jsx-center">
+                                    <div class="jsx-server-wrapper">
+                                        <div class="server-wrapper">
+                                            <div class="hmr-server">
+                                                <img src="https://www.figma.com/api/mcp/asset/f748a865-29c1-40a6-abdb-67dd40f12ee0" alt="" class="glowing-icon">
+                                                <p class="server-text">HMR Server</p>
+                                            </div>
+                                            <div class="dev-server">
+                                                <img src="https://www.figma.com/api/mcp/asset/0251c014-7a02-4e8e-bece-7dc754ee9fbb" alt="" class="glowing-icon">
+                                                <p class="server-text">Dev Server</p>
+                                            </div>
+                                        </div>
+                                        <img src="https://www.figma.com/api/mcp/asset/aca2bbea-393c-46b0-ad75-4e192a914e21" alt="" class="jsx-icon">
+                                    </div>
+                                    <div class="breadcrumb-wrapper">
+                                        <div class="breadcrumb">
+                                            <p class="breadcrumb-trail">src  &gt;  ui  &gt;</p>
+                                            <div class="file-selected">
+                                                <img src="https://www.figma.com/api/mcp/asset/43cf5f74-e35d-4a24-a83b-b4515cece8a4" alt="" class="react-icon-breadcrumb">
+                                                <p class="file-selected-text">Button.jsx</p>
+                                            </div>
+                                        </div>
+                                        <div class="breadcrumb-right-icons">
+                                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33301 1.33334C2.80257 1.33334 2.29387 1.54406 1.91879 1.91913C1.54372 2.2942 1.33301 2.80291 1.33301 3.33334V14C1.33301 14.2697 1.49544 14.5127 1.74455 14.6159C1.99367 14.7191 2.28041 14.6621 2.47108 14.4714L4.94248 12H12.6663C13.1968 12 13.7055 11.7893 14.0806 11.4142C14.4556 11.0392 14.6663 10.5304 14.6663 10V3.33334C14.6663 2.80291 14.4556 2.2942 14.0806 1.91913C13.7055 1.54406 13.1968 1.33334 12.6663 1.33334H3.33301ZM5.33301 4.66668C4.96482 4.66668 4.66634 4.96515 4.66634 5.33334C4.66634 5.70153 4.96482 6.00001 5.33301 6.00001H8.66634C9.03453 6.00001 9.33301 5.70153 9.33301 5.33334C9.33301 4.96515 9.03453 4.66668 8.66634 4.66668H5.33301ZM5.33301 7.33334C4.96482 7.33334 4.66634 7.63182 4.66634 8.00001C4.66634 8.3682 4.96482 8.66668 5.33301 8.66668H10.6663C11.0345 8.66668 11.333 8.3682 11.333 8.00001C11.333 7.63182 11.0345 7.33334 10.6663 7.33334H5.33301Z" fill="#956EBD"/>
+                                            </svg>
+                                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_92_9545)">
+                                                    <path d="M5.13283 2.91199L5.20228 2.16522L5.20228 2.16522L5.13283 2.91199ZM6.42909 2.37507L5.85193 1.89613L5.85193 1.89613L6.42909 2.37507ZM2.85172 4.48831L2.10494 4.55776L2.10494 4.55776L2.85172 4.48831ZM4.488 2.85202L4.41855 3.5988L4.41855 3.5988L4.488 2.85202ZM2.37476 6.42939L1.89582 5.85223L1.89582 5.85223L2.37476 6.42939ZM2.91169 5.13314L3.65847 5.06369L3.65847 5.06369L2.91169 5.13314ZM1.87639 9.15701L1.39745 9.73417L1.39745 9.73417L1.87639 9.15701ZM1.87639 6.84295L2.35534 7.42011L2.35534 7.42011L1.87639 6.84295ZM2.91169 10.8668L2.16491 10.7974L2.16491 10.7974L2.91169 10.8668ZM2.37476 9.57056L2.8537 8.9934L2.8537 8.9934L2.37476 9.57056ZM4.488 13.1479L4.41855 12.4012L4.41855 12.4012L4.488 13.1479ZM2.85172 11.5116L3.5985 11.5811L3.5985 11.5811L2.85172 11.5116ZM6.42909 13.6249L7.00625 13.1459L7.00625 13.1459L6.42909 13.6249ZM5.13283 13.088L5.20228 13.8347L5.20228 13.8347L5.13283 13.088ZM9.1567 14.1233L9.73386 14.6022L9.73386 14.6022L9.1567 14.1233ZM6.84265 14.1233L6.26548 14.6022L6.26549 14.6022L6.84265 14.1233ZM10.8665 13.088L10.7971 13.8347L10.7971 13.8347L10.8665 13.088ZM9.57026 13.6249L8.9931 13.1459L8.9931 13.1459L9.57026 13.6249ZM13.1476 11.5116L12.4009 11.5811L12.4009 11.5811L13.1476 11.5116ZM11.5113 13.1479L11.5808 12.4012L11.5808 12.4012L11.5113 13.1479ZM13.6246 9.57057L13.1456 8.9934L13.1456 8.9934L13.6246 9.57057ZM13.0877 10.8668L13.8344 10.7974L13.8344 10.7974L13.0877 10.8668ZM14.123 6.84295L14.6019 6.26579L14.6019 6.26579L14.123 6.84295ZM14.123 9.15701L14.6019 9.73417L14.6019 9.73417L14.123 9.15701ZM13.0877 5.13314L13.8344 5.20259L13.8344 5.20259L13.0877 5.13314ZM13.6246 6.42939L13.1456 7.00655L13.1456 7.00655L13.6246 6.42939ZM11.5113 2.85202L11.4419 2.10525L11.5113 2.85202ZM13.1476 4.48831L12.4009 4.41886L12.4009 4.41886L13.1476 4.48831ZM9.57026 2.37507L10.1474 1.89613L10.1474 1.89613L9.57026 2.37507ZM10.8665 2.91199L10.936 3.65877L10.936 3.65877L10.8665 2.91199ZM9.1567 1.8767L8.57954 2.35564L8.57954 2.35564L9.1567 1.8767ZM6.84265 1.8767L7.41981 2.35564L7.41981 2.35564L6.84265 1.8767ZM9.1567 1.8767L8.57954 2.35564L8.9931 2.85401L9.57026 2.37507L10.1474 1.89613L9.73386 1.39776L9.1567 1.8767ZM10.8665 2.91199L10.936 3.65877L11.5808 3.5988L11.5113 2.85202L11.4419 2.10525L10.7971 2.16522L10.8665 2.91199ZM13.1476 4.48831L12.4009 4.41886L12.3409 5.06369L13.0877 5.13314L13.8344 5.20259L13.8944 4.55776L13.1476 4.48831ZM13.6246 6.42939L13.1456 7.00655L13.644 7.42011L14.123 6.84295L14.6019 6.26579L14.1035 5.85223L13.6246 6.42939ZM14.123 9.15701L13.644 8.57985L13.1456 8.9934L13.6246 9.57057L14.1035 10.1477L14.6019 9.73417L14.123 9.15701ZM13.0877 10.8668L12.3409 10.9363L12.4009 11.5811L13.1476 11.5116L13.8944 11.4422L13.8344 10.7974L13.0877 10.8668ZM11.5113 13.1479L11.5808 12.4012L10.936 12.3412L10.8665 13.088L10.7971 13.8347L11.4419 13.8947L11.5113 13.1479ZM9.57026 13.6249L8.9931 13.1459L8.57954 13.6443L9.1567 14.1233L9.73386 14.6022L10.1474 14.1038L9.57026 13.6249ZM6.84265 14.1233L7.41981 13.6443L7.00625 13.1459L6.42909 13.6249L5.85193 14.1038L6.26548 14.6022L6.84265 14.1233ZM5.13283 13.088L5.06338 12.3412L4.41855 12.4012L4.488 13.1479L4.55745 13.8947L5.20228 13.8347L5.13283 13.088ZM2.85172 11.5116L3.5985 11.5811L3.65847 10.9363L2.91169 10.8668L2.16491 10.7974L2.10494 11.4422L2.85172 11.5116ZM2.37476 9.57056L2.8537 8.9934L2.35534 8.57985L1.87639 9.15701L1.39745 9.73417L1.89582 10.1477L2.37476 9.57056ZM1.87639 6.84295L2.35534 7.42011L2.8537 7.00655L2.37476 6.42939L1.89582 5.85223L1.39745 6.26579L1.87639 6.84295ZM2.91169 5.13314L3.65847 5.06369L3.5985 4.41886L2.85172 4.48831L2.10494 4.55776L2.16491 5.20259L2.91169 5.13314ZM4.488 2.85202L4.41855 3.5988L5.06338 3.65877L5.13283 2.91199L5.20228 2.16522L4.55745 2.10525L4.488 2.85202ZM6.42909 2.37507L7.00625 2.85401L7.41981 2.35564L6.84265 1.8767L6.26549 1.39776L5.85193 1.89613L6.42909 2.37507ZM5.13283 2.91199L5.06338 3.65877C5.80414 3.72766 6.53117 3.42652 7.00625 2.85401L6.42909 2.37507L5.85193 1.89613C5.69307 2.08756 5.44997 2.18825 5.20228 2.16522L5.13283 2.91199ZM2.85172 4.48831L3.5985 4.41886C3.5548 3.94904 3.94874 3.55511 4.41855 3.5988L4.488 2.85202L4.55746 2.10525C3.1524 1.97458 1.97427 3.1527 2.10494 4.55776L2.85172 4.48831ZM2.37476 6.42939L2.8537 7.00655C3.42621 6.53147 3.72736 5.80444 3.65847 5.06369L2.91169 5.13314L2.16491 5.20259C2.18795 5.45028 2.08725 5.69338 1.89582 5.85223L2.37476 6.42939ZM1.87639 9.15701L2.35534 8.57985C1.99223 8.27853 1.99223 7.72143 2.35534 7.42011L1.87639 6.84295L1.39745 6.26579C0.311526 7.16692 0.311526 8.83304 1.39745 9.73417L1.87639 9.15701ZM2.91169 10.8668L3.65847 10.9363C3.72736 10.1955 3.42621 9.46849 2.8537 8.9934L2.37476 9.57056L1.89582 10.1477C2.08725 10.3066 2.18795 10.5497 2.16491 10.7974L2.91169 10.8668ZM4.488 13.1479L4.41855 12.4012C3.94874 12.4448 3.5548 12.0509 3.5985 11.5811L2.85172 11.5116L2.10494 11.4422C1.97427 12.8473 3.15239 14.0254 4.55745 13.8947L4.488 13.1479ZM6.42909 13.6249L7.00625 13.1459C6.53117 12.5734 5.80414 12.2723 5.06338 12.3412L5.13283 13.088L5.20228 13.8347C5.44997 13.8117 5.69307 13.9124 5.85193 14.1038L6.42909 13.6249ZM9.1567 14.1233L8.57954 13.6443C8.27823 14.0074 7.72112 14.0074 7.41981 13.6443L6.84265 14.1233L6.26549 14.6022C7.16661 15.6881 8.83273 15.6881 9.73386 14.6022L9.1567 14.1233ZM10.8665 13.088L10.936 12.3412C10.1952 12.2723 9.46818 12.5734 8.9931 13.1459L9.57026 13.6249L10.1474 14.1038C10.3063 13.9124 10.5494 13.8117 10.7971 13.8347L10.8665 13.088ZM13.1476 11.5116L12.4009 11.5811C12.4445 12.0509 12.0506 12.4448 11.5808 12.4012L11.5113 13.1479L11.4419 13.8947C12.847 14.0254 14.0251 12.8473 13.8944 11.4422L13.1476 11.5116ZM13.6246 9.57057L13.1456 8.9934C12.5731 9.46849 12.272 10.1955 12.3409 10.9363L13.0877 10.8668L13.8344 10.7974C13.8114 10.5497 13.9121 10.3066 14.1035 10.1477L13.6246 9.57057ZM14.123 6.84295L13.644 7.42011C14.0071 7.72143 14.0071 8.27853 13.644 8.57985L14.123 9.15701L14.6019 9.73417C15.6878 8.83304 15.6878 7.16692 14.6019 6.26579L14.123 6.84295ZM13.0877 5.13314L12.3409 5.06369C12.272 5.80445 12.5731 6.53147 13.1456 7.00655L13.6246 6.42939L14.1035 5.85223C13.9121 5.69338 13.8114 5.45028 13.8344 5.20259L13.0877 5.13314ZM11.5113 2.85202L11.5808 3.5988C12.0506 3.55511 12.4445 3.94904 12.4009 4.41886L13.1476 4.48831L13.8944 4.55776C14.0251 3.1527 12.847 1.97457 11.4419 2.10525L11.5113 2.85202ZM9.57026 2.37507L8.9931 2.85401C9.46818 3.42652 10.1952 3.72766 10.936 3.65877L10.8665 2.91199L10.7971 2.16522C10.5494 2.18825 10.3063 2.08756 10.1474 1.89613L9.57026 2.37507ZM9.1567 1.8767L9.73386 1.39776C8.83273 0.311831 7.16661 0.311831 6.26549 1.39776L6.84265 1.8767L7.41981 2.35564C7.72112 1.99254 8.27823 1.99254 8.57954 2.35564L9.1567 1.8767ZM9.99967 7.99998H9.24967C9.24967 8.69034 8.69003 9.24998 7.99967 9.24998V9.99998V10.75C9.51846 10.75 10.7497 9.51876 10.7497 7.99998H9.99967ZM7.99967 9.99998V9.24998C7.30932 9.24998 6.74967 8.69034 6.74967 7.99998H5.99967H5.24967C5.24967 9.51876 6.48089 10.75 7.99967 10.75V9.99998ZM5.99967 7.99998H6.74967C6.74967 7.30962 7.30932 6.74998 7.99967 6.74998V5.99998V5.24998C6.48089 5.24998 5.24967 6.4812 5.24967 7.99998H5.99967ZM7.99967 5.99998V6.74998C8.69003 6.74998 9.24967 7.30962 9.24967 7.99998H9.99967H10.7497C10.7497 6.4812 9.51846 5.24998 7.99967 5.24998V5.99998Z" fill="#956EBD"/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_92_9545">
+                                                        <rect width="16" height="16" fill="white"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="main-code-wrapper">
+                                        <pre class="code-content"><span class="code-keyword">export default function</span> <span class="code-variable">Button</span>({ <span class="code-variable">variant</span>, <span class="code-variable">children</span>, <span class="code-variable">onClick</span> }) {
+  <span class="code-keyword">const</span> <span class="code-variable">baseClass</span> = <span class="code-string">"btn"</span>;
+  <span class="code-keyword">const</span> <span class="code-variable">variantClass</span> = <span class="code-variable">variant</span> === <span class="code-string">"primary"</span> ? <span class="code-string">"btn-primary"</span> : <span class="code-string">"btn-secondary"</span>;
+
+  <span class="code-keyword">return</span> (
+    <span class="highlight-line"><span class="code-tag">&lt;button</span></span>
+      <span class="highlight-line"><span class="code-attribute">className</span>=<span class="code-value">{`${baseClass} ${variantClass}`}</span></span>
+      <span class="highlight-line"><span class="code-attribute">onClick</span>=<span class="code-value">{onClick}</span></span>
+    <span class="highlight-line"><span class="code-tag">&gt;</span></span>
+      <span class="highlight-line"><span class="code-tag">&lt;span&gt;</span>{<span class="code-variable">children</span>}<span class="code-tag">&lt;/span&gt;</span></span>
+    <span class="highlight-line"><span class="code-tag">&lt;/button&gt;</span></span>
+  );
+}</pre>
+                                        <div class="chat-box">
+                                            <div class="chat-attachment">
+                                                <img src="images/screenshot-attachment.svg" alt="Button screenshot" class="attachment-image">
+                                            </div>
+                                            <p class="chat-placeholder">Change the button similar to the screenshot</p>
+                                            <div class="chat-controls">
+                                                <div class="chat-options">
+                                                    <div class="modes-selector">
+                                                        <div class="mode-content">
+                                                            <svg class="mode-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M7.58301 1.16666H3.49967C3.19026 1.16666 2.89351 1.28957 2.67472 1.50837C2.45592 1.72716 2.33301 2.0239 2.33301 2.33332V11.6667C2.33301 11.9761 2.45592 12.2728 2.67472 12.4916C2.89351 12.7104 3.19026 12.8333 3.49967 12.8333H10.4997C10.8091 12.8333 11.1058 12.7104 11.3246 12.4916C11.5434 12.2728 11.6663 11.9761 11.6663 11.6667V5.24999M7.58301 1.16666L11.6663 5.24999M7.58301 1.16666V5.24999H11.6663M5.83301 8.16666L5.24967 9.33332L5.83301 10.5M8.16634 8.16666L8.74967 9.33332L8.16634 10.5" stroke="#9171B3" stroke-linecap="round" stroke-linejoin="round"/>
+                                                            </svg>
+                                                            <p class="mode-text">Edit</p>
+                                                        </div>
+                                                        <img src="https://www.figma.com/api/mcp/asset/fdb26478-cd1d-4103-8be5-7c97544bffb5" alt="" class="drop-icon-small">
+                                                    </div>
+                                                    <div class="model-selector">
+                                                        <p class="model-text">Gemini 2.5 Flash</p>
+                                                        <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon-small">
+                                                    </div>
+                                                </div>
+                                                <div class="chat-actions">
+                                                    <svg class="action-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M15 8H15.01M19 21L9.41421 11.4142C8.63317 10.6332 7.36684 10.6332 6.58579 11.4142L3 15M19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM21 16L18.4142 13.4142C17.6332 12.6332 16.3668 12.6332 15.5858 13.4142L13.5 15.5" stroke="#6B4C8D" stroke-width="1.5" stroke-linecap="round"/>
+                                                    </svg>
+                                                    <svg class="action-icon send-button" id="sendButton" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1ZM12.7071 7.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071C16.3166 13.0976 15.6834 13.0976 15.2929 12.7071L13 10.4142V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V10.4142L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929L11.2929 7.29289C11.6834 6.90237 12.3166 6.90237 12.7071 7.29289Z" fill="url(#paint0_linear_89_9350)"/>
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear_89_9350" x1="12" y1="1" x2="12" y2="23" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#8937F0"/>
+                                                                <stop offset="1" stop-color="#611CB8"/>
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Right Panel -->
+                                <div class="jsx-right">
+                                    <div class="resize-handle resize-handle-left"></div>
+                                    <div class="css-code-header">
+                                        <div class="css-code-bookmark">
+                                            <div class="css-code-selection">
+                                                <img src="https://www.figma.com/api/mcp/asset/43cf5f74-e35d-4a24-a83b-b4515cece8a4" alt="" class="react-icon-breadcrumb">
+                                                <p class="css-file-text">button.css</p>
+                                            </div>
+                                            <svg class="bookmark-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12.6663 14L7.99967 11.3333L3.33301 14V3.33333C3.33301 2.97971 3.47348 2.64057 3.72353 2.39052C3.97358 2.14048 4.31272 2 4.66634 2H11.333C11.6866 2 12.0258 2.14048 12.2758 2.39052C12.5259 2.64057 12.6663 2.97971 12.6663 3.33333V14Z" stroke="#6B4C8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <img src="https://www.figma.com/api/mcp/asset/b7819b2e-8f7d-49e2-95d3-97538b6d4c8b" alt="" class="close-icon">
+                                    </div>
+                                    <div class="css-code-wrapper">
+                                        <pre class="css-code">.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  font-family: 'Alpha Lyrae', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn-primary {
+  background: linear-gradient(to bottom, #5b1ea7, #380f6c);
+  border: 1px solid #4c198c;
+  border-radius: 100px;
+  color: white;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0px 1px 2px 0px rgba(44, 12, 83, 0.5);
+  pointer-events: none;
+  border-radius: 100px;
+}
+
+.btn-secondary {
+  background: linear-gradient(to bottom, #cfcfcf, #5a5a5a);
+  border: 1px solid #595959;
+  color: #242424;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  background: #1f2937;
+  color: #e5e7eb;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
+}</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+        <!-- Informative Text / Reload Button -->
+        <div class="informative-element" id="informativeElement">
+            <div class="informative-content">
+                <p class="informative-text">Click on</p>
+                <img src="https://www.figma.com/api/mcp/asset/a7687faf-d365-4aa1-962e-bfdb957e33b4" alt="arrow up" class="informative-icon">
+                <p class="informative-text">in console to see the magic</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section class="message-section">
+        <div class="message-content-wrapper">
+            <!-- Animated Hand -->
+            <div class="hand-animation-wrapper">
+                <dotlottie-player id="handAnimation" src="images/hi.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
+            </div>
+
+            <!-- Text Content -->
+            <div class="message-text-content">
+                <p class="message-text">Hey <span class="text-highlight">Jamie</span> & <span class="text-highlight">Dan</span>, it was fun re-creating the website and especially console in code.</p>
+
+                <p class="message-text">Hope you like it. If you need any help, you can contact me <a href="https://felixjoy.me" class="message-link" target="_blank" rel="noopener noreferrer">here</a>.</p>
+
+                <div class="message-signature">
+                    <p class="message-text">With love <span class="text-highlight">Felix</span></p>
+                    <img src="https://www.figma.com/api/mcp/asset/65c98e05-24be-4e9b-a7c3-ca78bc6a47b5" alt="Logo" class="message-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="js/console-component.js"></script>
+    <script src="js/browser-mockup.js"></script>
+    <script src="js/jsx-tool.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Component - Dev Tools</title>
+    <link rel="stylesheet" href="css/console-component.css">
+</head>
+<body>
+    <div class="console-jsx-component">
+        <!-- Vertical Resize Handle -->
+        <div class="resize-handle-top"></div>
+        <!-- Console Header -->
+        <div class="console-header-wrapper">
+            <div class="console-header-left-wrapper">
+                <div class="console-header-left">
+                    <!-- header-icon (expand/collapse) -->
+                    <svg class="header-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.33333 14V7.33333H14V8.66667H9.6L14 13.0667L13.0667 14L8.66667 9.6V14H7.33333ZM4.66667 14V12.6667H6V14H4.66667ZM3.33333 3.33333H2C2 2.96667 2.13056 2.65278 2.39167 2.39167C2.65278 2.13056 2.96667 2 3.33333 2V3.33333ZM4.66667 3.33333V2H6V3.33333H4.66667ZM7.33333 3.33333V2H8.66667V3.33333H7.33333ZM10 3.33333V2H11.3333V3.33333H10ZM12.6667 3.33333V2C13.0333 2 13.3472 2.13056 13.6083 2.39167C13.8694 2.65278 14 2.96667 14 3.33333H12.6667ZM3.33333 12.6667V14C2.96667 14 2.65278 13.8694 2.39167 13.6083C2.13056 13.3472 2 13.0333 2 12.6667H3.33333ZM2 11.3333V10H3.33333V11.3333H2ZM2 8.66667V7.33333H3.33333V8.66667H2ZM2 6V4.66667H3.33333V6H2ZM12.6667 6V4.66667H14V6H12.6667Z" fill="#9284A3"/>
+                    </svg>
+                    <!-- control-icon (second, keep as is) -->
+                    <img src="https://www.figma.com/api/mcp/asset/37cd1fc8-252b-448f-93e6-00227c2cf78d" alt="" class="header-icon">
+                </div>
+                <div class="divider-vertical"></div>
+                <div class="console-header-tabs">
+                    <p class="tab-item" data-priority="1">Elements</p>
+                    <div class="jsx-tab-highlighted">
+                        <div class="jsx-tab-content">
+                            <img src="https://www.figma.com/api/mcp/asset/fe7203d7-51fb-40ac-a1d3-82c4fd3a2224" alt="" class="jsx-icon-small">
+                            <p class="tab-text-active">JSX Tool</p>
+                        </div>
+                        <div class="tab-selection"></div>
+                    </div>
+                    <p class="tab-item" data-priority="2">Console</p>
+                    <p class="tab-item" data-priority="3">Sources</p>
+                    <p class="tab-item" data-priority="4">Network</p>
+                    <p class="tab-item" data-priority="5">Performance</p>
+                    <p class="tab-item" data-priority="6">Memory</p>
+                    <p class="tab-item" data-priority="7">Application</p>
+                    <button class="tab-overflow-btn" style="display: none;">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 4L10 8L6 12" stroke="#9284a3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="console-header-right">
+                <img src="https://www.figma.com/api/mcp/asset/59b63487-701c-49b4-a8f9-b57bbc811a53" alt="" class="header-icon">
+                <img src="https://www.figma.com/api/mcp/asset/e55f6937-b950-4046-b20f-13ea79e40e7d" alt="" class="header-icon">
+                <img src="https://www.figma.com/api/mcp/asset/c1242ee1-41cc-4244-a6ca-ecfa81ba28eb" alt="" class="header-icon">
+            </div>
+        </div>
+
+        <!-- JSX Tool Wrapper -->
+        <div class="jsx-tool-wrapper">
+            <!-- Left Panel - File Tree -->
+            <div class="jsx-left">
+                <div class="resize-handle resize-handle-right"></div>
+                <div class="jsx-controls">
+                    <svg class="icon-inspect" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.46973 7.46973C7.68183 7.25762 7.9998 7.19238 8.27832 7.30371L14.9453 9.9707C15.2304 10.0848 15.4175 10.3609 15.417 10.668C15.4164 10.9752 15.2281 11.2513 14.9424 11.3643L12.377 12.377L11.3643 14.9424C11.2513 15.2281 10.9752 15.4164 10.668 15.417C10.3609 15.4175 10.0848 15.2304 9.9707 14.9453L7.30371 8.27832C7.19238 7.9998 7.25762 7.68183 7.46973 7.46973ZM12.667 1.25C13.2194 1.25009 13.749 1.46973 14.1396 1.86035C14.5303 2.25098 14.7499 2.78059 14.75 3.33301V7.33301C14.75 7.74722 14.4142 8.08301 14 8.08301C13.5858 8.08301 13.25 7.74722 13.25 7.33301V3.33301C13.2499 3.17842 13.1884 3.03022 13.0791 2.9209C12.9698 2.81158 12.8216 2.75009 12.667 2.75H3.33301C3.17842 2.75009 3.03022 2.81158 2.9209 2.9209C2.81158 3.03022 2.75009 3.17842 2.75 3.33301V12.667C2.75009 12.8216 2.81158 12.9698 2.9209 13.0791C3.03022 13.1884 3.17842 13.2499 3.33301 13.25H7.33301C7.74722 13.25 8.08301 13.5858 8.08301 14C8.08301 14.4142 7.74722 14.75 7.33301 14.75H3.33301C2.78059 14.7499 2.25098 14.5303 1.86035 14.1396C1.46973 13.749 1.25009 13.2194 1.25 12.667V3.33301C1.25009 2.78059 1.46973 2.25098 1.86035 1.86035C2.25098 1.46973 2.78059 1.25009 3.33301 1.25H12.667ZM10.6621 12.6357L11.1025 11.5244L11.1348 11.4541C11.2177 11.2946 11.3557 11.1693 11.5244 11.1025L12.6357 10.6621L9.3457 9.3457L10.6621 12.6357Z" fill="#956EBD"/>
+                    </svg>
+                    <img src="https://www.figma.com/api/mcp/asset/3df303ec-96ad-4201-b72a-c76b5d6fb34e" alt="" class="control-icon">
+                    <svg class="control-icon control-icon-dim" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.4">
+                            <path d="M5.3335 14H10.6668M8.00016 11.3333V14M2.66683 2H13.3335C14.0699 2 14.6668 2.59695 14.6668 3.33333V10C14.6668 10.7364 14.0699 11.3333 13.3335 11.3333H2.66683C1.93045 11.3333 1.3335 10.7364 1.3335 10V3.33333C1.3335 2.59695 1.93045 2 2.66683 2Z" stroke="#956EBD" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="main-tree-branch">
+                    <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                        <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                        <p class="tree-text">src</p>
+                    </div>
+                    <div class="sub-tree-branches tree-children">
+                        <div class="pages-tree-branch">
+                            <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                <p class="tree-text">pages</p>
+                            </div>
+                            <div class="tree-item tree-children">
+                                <p class="tree-text">LoginPage.tsx</p>
+                            </div>
+                        </div>
+                        <div class="opened-tree-branch">
+                            <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                <p class="tree-text">components</p>
+                            </div>
+                            <div class="opened-tree-items-wrapper tree-children">
+                                <div class="tree-line-wrapper">
+                                    <img src="https://www.figma.com/api/mcp/asset/bc34706e-da2d-4c87-8715-937eefb074ac" alt="" class="tree-line">
+                                </div>
+                                <div class="opened-tree-items">
+                                    <div class="tree-item-with-icon tree-item-selected">
+                                        <img src="https://www.figma.com/api/mcp/asset/43cf5f74-e35d-4a24-a83b-b4515cece8a4" alt="" class="react-icon">
+                                        <p class="tree-text-selected">LoginLayout.tsx</p>
+                                    </div>
+                                    <div class="tree-item-with-icon">
+                                        <img src="https://www.figma.com/api/mcp/asset/0c8e293b-d4d3-44e4-bc58-d18b2556eac7" alt="" class="react-icon">
+                                        <p class="tree-text">LoginCard.tsx</p>
+                                    </div>
+                                    <div class="tree-item-with-icon">
+                                        <img src="https://www.figma.com/api/mcp/asset/0c8e293b-d4d3-44e4-bc58-d18b2556eac7" alt="" class="react-icon">
+                                        <p class="tree-text">LoginButton.tsx</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="styles-tree-branch">
+                            <div class="tree-item-with-icon tree-folder-toggle" data-expanded="true">
+                                <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon">
+                                <p class="tree-text">styles</p>
+                            </div>
+                            <div class="tree-item tree-children">
+                                <p class="tree-text">login.css</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Panel - Code Editor -->
+            <div class="jsx-center">
+                <div class="jsx-server-wrapper">
+                    <div class="server-wrapper">
+                        <div class="hmr-server">
+                            <img src="https://www.figma.com/api/mcp/asset/f748a865-29c1-40a6-abdb-67dd40f12ee0" alt="" class="glowing-icon">
+                            <p class="server-text">HMR Server</p>
+                        </div>
+                        <div class="dev-server">
+                            <img src="https://www.figma.com/api/mcp/asset/0251c014-7a02-4e8e-bece-7dc754ee9fbb" alt="" class="glowing-icon">
+                            <p class="server-text">Dev Server</p>
+                        </div>
+                    </div>
+                    <img src="https://www.figma.com/api/mcp/asset/aca2bbea-393c-46b0-ad75-4e192a914e21" alt="" class="jsx-icon">
+                </div>
+                <div class="breadcrumb-wrapper">
+                    <div class="breadcrumb">
+                        <p class="breadcrumb-trail">src  >  components  ></p>
+                        <div class="file-selected">
+                            <img src="https://www.figma.com/api/mcp/asset/43cf5f74-e35d-4a24-a83b-b4515cece8a4" alt="" class="react-icon-breadcrumb">
+                            <p class="file-selected-text">LoginLayout.tsx</p>
+                        </div>
+                    </div>
+                    <div class="breadcrumb-right-icons">
+                        <!-- breadcrumb-icon (first) -->
+                        <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.33301 1.33334C2.80257 1.33334 2.29387 1.54406 1.91879 1.91913C1.54372 2.2942 1.33301 2.80291 1.33301 3.33334V14C1.33301 14.2697 1.49544 14.5127 1.74455 14.6159C1.99367 14.7191 2.28041 14.6621 2.47108 14.4714L4.94248 12H12.6663C13.1968 12 13.7055 11.7893 14.0806 11.4142C14.4556 11.0392 14.6663 10.5304 14.6663 10V3.33334C14.6663 2.80291 14.4556 2.2942 14.0806 1.91913C13.7055 1.54406 13.1968 1.33334 12.6663 1.33334H3.33301ZM5.33301 4.66668C4.96482 4.66668 4.66634 4.96515 4.66634 5.33334C4.66634 5.70153 4.96482 6.00001 5.33301 6.00001H8.66634C9.03453 6.00001 9.33301 5.70153 9.33301 5.33334C9.33301 4.96515 9.03453 4.66668 8.66634 4.66668H5.33301ZM5.33301 7.33334C4.96482 7.33334 4.66634 7.63182 4.66634 8.00001C4.66634 8.3682 4.96482 8.66668 5.33301 8.66668H10.6663C11.0345 8.66668 11.333 8.3682 11.333 8.00001C11.333 7.63182 11.0345 7.33334 10.6663 7.33334H5.33301Z" fill="#956EBD"/>
+                        </svg>
+                        <!-- breadcrumb-icon (second) -->
+                        <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_61_1893)">
+                                <path d="M5.13283 2.91201L5.20228 2.16523L5.20228 2.16523L5.13283 2.91201ZM6.42909 2.37508L5.85193 1.89614L5.85193 1.89614L6.42909 2.37508ZM2.85172 4.48832L2.10494 4.55778L2.10494 4.55778L2.85172 4.48832ZM4.488 2.85204L4.41855 3.59882L4.41855 3.59882L4.488 2.85204ZM2.37476 6.42941L1.89582 5.85225L1.89582 5.85225L2.37476 6.42941ZM2.91169 5.13315L3.65847 5.0637L3.65847 5.0637L2.91169 5.13315ZM1.87639 9.15702L1.39745 9.73418L1.39745 9.73418L1.87639 9.15702ZM1.87639 6.84297L2.35534 7.42013L2.35534 7.42013L1.87639 6.84297ZM2.91169 10.8668L2.16491 10.7974L2.16491 10.7974L2.91169 10.8668ZM2.37476 9.57058L2.8537 8.99342L2.8537 8.99342L2.37476 9.57058ZM4.488 13.1479L4.41855 12.4012L4.41855 12.4012L4.488 13.1479ZM2.85172 11.5117L3.5985 11.5811L3.5985 11.5811L2.85172 11.5117ZM6.42909 13.6249L7.00625 13.146L7.00625 13.146L6.42909 13.6249ZM5.13283 13.088L5.20228 13.8348L5.20228 13.8348L5.13283 13.088ZM9.1567 14.1233L9.73386 14.6022L9.73386 14.6022L9.1567 14.1233ZM6.84265 14.1233L6.26548 14.6022L6.26549 14.6022L6.84265 14.1233ZM10.8665 13.088L10.7971 13.8348L10.7971 13.8348L10.8665 13.088ZM9.57026 13.6249L8.9931 13.146L8.9931 13.146L9.57026 13.6249ZM13.1476 11.5117L12.4009 11.5811L12.4009 11.5811L13.1476 11.5117ZM11.5113 13.1479L11.5808 12.4012L11.5808 12.4012L11.5113 13.1479ZM13.6246 9.57058L13.1456 8.99342L13.1456 8.99342L13.6246 9.57058ZM13.0877 10.8668L13.8344 10.7974L13.8344 10.7974L13.0877 10.8668ZM14.123 6.84297L14.6019 6.26581L14.6019 6.26581L14.123 6.84297ZM14.123 9.15702L14.6019 9.73418L14.6019 9.73418L14.123 9.15702ZM13.0877 5.13315L13.8344 5.2026L13.8344 5.2026L13.0877 5.13315ZM13.6246 6.42941L13.1456 7.00657L13.1456 7.00657L13.6246 6.42941ZM11.5113 2.85204L11.4419 2.10526L11.5113 2.85204ZM13.1476 4.48832L12.4009 4.41887L12.4009 4.41887L13.1476 4.48832ZM9.57026 2.37508L10.1474 1.89614L10.1474 1.89614L9.57026 2.37508ZM10.8665 2.91201L10.936 3.65879L10.936 3.65879L10.8665 2.91201ZM9.1567 1.87672L8.57954 2.35566L8.57954 2.35566L9.1567 1.87672ZM6.84265 1.87672L7.41981 2.35566L7.41981 2.35566L6.84265 1.87672ZM9.1567 1.87672L8.57954 2.35566L8.9931 2.85403L9.57026 2.37508L10.1474 1.89614L9.73386 1.39777L9.1567 1.87672ZM10.8665 2.91201L10.936 3.65879L11.5808 3.59882L11.5113 2.85204L11.4419 2.10526L10.7971 2.16523L10.8665 2.91201ZM13.1476 4.48832L12.4009 4.41887L12.3409 5.0637L13.0877 5.13315L13.8344 5.2026L13.8944 4.55778L13.1476 4.48832ZM13.6246 6.42941L13.1456 7.00657L13.644 7.42013L14.123 6.84297L14.6019 6.26581L14.1035 5.85225L13.6246 6.42941ZM14.123 9.15702L13.644 8.57986L13.1456 8.99342L13.6246 9.57058L14.1035 10.1477L14.6019 9.73418L14.123 9.15702ZM13.0877 10.8668L12.3409 10.9363L12.4009 11.5811L13.1476 11.5117L13.8944 11.4422L13.8344 10.7974L13.0877 10.8668ZM11.5113 13.1479L11.5808 12.4012L10.936 12.3412L10.8665 13.088L10.7971 13.8348L11.4419 13.8947L11.5113 13.1479ZM9.57026 13.6249L8.9931 13.146L8.57954 13.6443L9.1567 14.1233L9.73386 14.6022L10.1474 14.1038L9.57026 13.6249ZM6.84265 14.1233L7.41981 13.6443L7.00625 13.146L6.42909 13.6249L5.85193 14.1038L6.26548 14.6022L6.84265 14.1233ZM5.13283 13.088L5.06338 12.3412L4.41855 12.4012L4.488 13.1479L4.55745 13.8947L5.20228 13.8348L5.13283 13.088ZM2.85172 11.5117L3.5985 11.5811L3.65847 10.9363L2.91169 10.8668L2.16491 10.7974L2.10494 11.4422L2.85172 11.5117ZM2.37476 9.57058L2.8537 8.99342L2.35534 8.57986L1.87639 9.15702L1.39745 9.73418L1.89582 10.1477L2.37476 9.57058ZM1.87639 6.84297L2.35534 7.42013L2.8537 7.00657L2.37476 6.42941L1.89582 5.85225L1.39745 6.26581L1.87639 6.84297ZM2.91169 5.13315L3.65847 5.0637L3.5985 4.41887L2.85172 4.48832L2.10494 4.55778L2.16491 5.2026L2.91169 5.13315ZM4.488 2.85204L4.41855 3.59882L5.06338 3.65879L5.13283 2.91201L5.20228 2.16523L4.55745 2.10526L4.488 2.85204ZM6.42909 2.37508L7.00625 2.85403L7.41981 2.35566L6.84265 1.87672L6.26549 1.39777L5.85193 1.89614L6.42909 2.37508ZM5.13283 2.91201L5.06338 3.65879C5.80414 3.72768 6.53117 3.42653 7.00625 2.85403L6.42909 2.37508L5.85193 1.89614C5.69307 2.08757 5.44997 2.18827 5.20228 2.16523L5.13283 2.91201ZM2.85172 4.48832L3.5985 4.41887C3.5548 3.94906 3.94874 3.55512 4.41855 3.59882L4.488 2.85204L4.55746 2.10526C3.1524 1.97459 1.97427 3.15271 2.10494 4.55778L2.85172 4.48832ZM2.37476 6.42941L2.8537 7.00657C3.42621 6.53149 3.72736 5.80446 3.65847 5.0637L2.91169 5.13315L2.16491 5.2026C2.18795 5.45029 2.08725 5.69339 1.89582 5.85225L2.37476 6.42941ZM1.87639 9.15702L2.35534 8.57986C1.99223 8.27855 1.99223 7.72144 2.35534 7.42013L1.87639 6.84297L1.39745 6.26581C0.311526 7.16693 0.311526 8.83305 1.39745 9.73418L1.87639 9.15702ZM2.91169 10.8668L3.65847 10.9363C3.72736 10.1955 3.42621 9.4685 2.8537 8.99342L2.37476 9.57058L1.89582 10.1477C2.08725 10.3066 2.18795 10.5497 2.16491 10.7974L2.91169 10.8668ZM4.488 13.1479L4.41855 12.4012C3.94874 12.4449 3.5548 12.0509 3.5985 11.5811L2.85172 11.5117L2.10494 11.4422C1.97427 12.8473 3.15239 14.0254 4.55745 13.8947L4.488 13.1479ZM6.42909 13.6249L7.00625 13.146C6.53117 12.5735 5.80414 12.2723 5.06338 12.3412L5.13283 13.088L5.20228 13.8348C5.44997 13.8117 5.69307 13.9124 5.85193 14.1038L6.42909 13.6249ZM9.1567 14.1233L8.57954 13.6443C8.27823 14.0074 7.72112 14.0074 7.41981 13.6443L6.84265 14.1233L6.26549 14.6022C7.16661 15.6881 8.83273 15.6881 9.73386 14.6022L9.1567 14.1233ZM10.8665 13.088L10.936 12.3412C10.1952 12.2723 9.46818 12.5735 8.9931 13.146L9.57026 13.6249L10.1474 14.1038C10.3063 13.9124 10.5494 13.8117 10.7971 13.8348L10.8665 13.088ZM13.1476 11.5117L12.4009 11.5811C12.4445 12.0509 12.0506 12.4449 11.5808 12.4012L11.5113 13.1479L11.4419 13.8947C12.847 14.0254 14.0251 12.8473 13.8944 11.4422L13.1476 11.5117ZM13.6246 9.57058L13.1456 8.99342C12.5731 9.4685 12.272 10.1955 12.3409 10.9363L13.0877 10.8668L13.8344 10.7974C13.8114 10.5497 13.9121 10.3066 14.1035 10.1477L13.6246 9.57058ZM14.123 6.84297L13.644 7.42013C14.0071 7.72144 14.0071 8.27855 13.644 8.57986L14.123 9.15702L14.6019 9.73418C15.6878 8.83305 15.6878 7.16693 14.6019 6.26581L14.123 6.84297ZM13.0877 5.13315L12.3409 5.0637C12.272 5.80446 12.5731 6.53149 13.1456 7.00657L13.6246 6.42941L14.1035 5.85225C13.9121 5.69339 13.8114 5.45029 13.8344 5.2026L13.0877 5.13315ZM11.5113 2.85204L11.5808 3.59882C12.0506 3.55512 12.4445 3.94906 12.4009 4.41887L13.1476 4.48832L13.8944 4.55778C14.0251 3.15272 12.847 1.97459 11.4419 2.10526L11.5113 2.85204ZM9.57026 2.37508L8.9931 2.85403C9.46818 3.42653 10.1952 3.72768 10.936 3.65879L10.8665 2.91201L10.7971 2.16523C10.5494 2.18827 10.3063 2.08757 10.1474 1.89614L9.57026 2.37508ZM9.1567 1.87672L9.73386 1.39777C8.83273 0.311847 7.16661 0.311847 6.26549 1.39777L6.84265 1.87672L7.41981 2.35566C7.72112 1.99255 8.27823 1.99255 8.57954 2.35566L9.1567 1.87672ZM9.99967 7.99999H9.24967C9.24967 8.69035 8.69003 9.24999 7.99967 9.24999V9.99999V10.75C9.51846 10.75 10.7497 9.51878 10.7497 7.99999H9.99967ZM7.99967 9.99999V9.24999C7.30932 9.24999 6.74967 8.69035 6.74967 7.99999H5.99967H5.24967C5.24967 9.51878 6.48089 10.75 7.99967 10.75V9.99999ZM5.99967 7.99999H6.74967C6.74967 7.30964 7.30932 6.74999 7.99967 6.74999V5.99999V5.24999C6.48089 5.24999 5.24967 6.48121 5.24967 7.99999H5.99967ZM7.99967 5.99999V6.74999C8.69003 6.74999 9.24967 7.30964 9.24967 7.99999H9.99967H10.7497C10.7497 6.48121 9.51846 5.24999 7.99967 5.24999V5.99999Z" fill="#956EBD"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_61_1893">
+                                    <rect width="16" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+                <div class="main-code-wrapper">
+                    <pre class="code-content"><span class="code-variable">card</span><span class="code-text">";</span>
+
+  <span class="code-keyword">return</span> (
+    <span class="highlight-line"><span class="code-tag">&lt;div</span> <span class="code-attribute">className</span>=<span class="code-value">{stateClass}</span><span class="code-tag">&gt;</span></span>
+      <span class="highlight-line"><span class="code-tag">&lt;h1</span> <span class="code-attribute">className</span>=<span class="code-string">"login-card__title"</span><span class="code-tag">&gt;</span><span class="code-text">Welcome to JSX Tool</span><span class="code-tag">&lt;/h1&gt;</span></span>
+      <span class="highlight-line"><span class="code-tag">&lt;p</span> <span class="code-attribute">className</span>=<span class="code-string">"login-card__subtitle"</span><span class="code-tag">&gt;</span></span>
+        <span class="code-text">Continue where you left off in seconds.</span>
+      <span class="highlight-line"><span class="code-tag">&lt;/p&gt;</span></span>
+
+      <span class="code-tag">&lt;div</span> <span class="code-attribute">className</span>=<span class="code-string">"login-card__fields"</span><span class="code-tag">&gt;</span>
+        <span class="code-tag">&lt;input</span>
+          <span class="code-attribute">className</span>=<span class="code-string">"login-card__input"</span>
+          <span class="code-attribute">placeholder</span>=<span class="code-string">"Enter your email"</span></pre>
+                    <div class="chat-box">
+                        <p class="chat-placeholder">Make file edits to LoginLayout.tsk, @tag elements for context</p>
+                        <div class="chat-controls">
+                            <div class="chat-options">
+                                <div class="modes-selector">
+                                    <div class="mode-content">
+                                        <svg class="mode-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7.58301 1.16666H3.49967C3.19026 1.16666 2.89351 1.28957 2.67472 1.50837C2.45592 1.72716 2.33301 2.0239 2.33301 2.33332V11.6667C2.33301 11.9761 2.45592 12.2728 2.67472 12.4916C2.89351 12.7104 3.19026 12.8333 3.49967 12.8333H10.4997C10.8091 12.8333 11.1058 12.7104 11.3246 12.4916C11.5434 12.2728 11.6663 11.9761 11.6663 11.6667V5.24999M7.58301 1.16666L11.6663 5.24999M7.58301 1.16666V5.24999H11.6663M5.83301 8.16666L5.24967 9.33332L5.83301 10.5M8.16634 8.16666L8.74967 9.33332L8.16634 10.5" stroke="#9171B3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <p class="mode-text">Edit</p>
+                                    </div>
+                                    <img src="https://www.figma.com/api/mcp/asset/fdb26478-cd1d-4103-8be5-7c97544bffb5" alt="" class="drop-icon-small">
+                                </div>
+                                <div class="model-selector">
+                                    <p class="model-text">Gemini 2.5 Flash</p>
+                                    <img src="https://www.figma.com/api/mcp/asset/707ebad7-afe8-4dc7-9b01-8f069058ddf1" alt="" class="drop-icon-small">
+                                </div>
+                            </div>
+                            <div class="chat-actions">
+                                <!-- action-icon (first) -->
+                                <svg class="action-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 8H15.01M19 21L9.41421 11.4142C8.63317 10.6332 7.36684 10.6332 6.58579 11.4142L3 15M19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM21 16L18.4142 13.4142C17.6332 12.6332 16.3668 12.6332 15.5858 13.4142L13.5 15.5" stroke="#6B4C8D" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                                <!-- action-icon (second) -->
+                                <svg class="action-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23C18.0751 23 23 18.0751 23 12C23 5.92487 18.0751 1 12 1ZM12.7071 7.29289L16.7071 11.2929C17.0976 11.6834 17.0976 12.3166 16.7071 12.7071C16.3166 13.0976 15.6834 13.0976 15.2929 12.7071L13 10.4142V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V10.4142L8.70711 12.7071C8.31658 13.0976 7.68342 13.0976 7.29289 12.7071C6.90237 12.3166 6.90237 11.6834 7.29289 11.2929L11.2929 7.29289C11.6834 6.90237 12.3166 6.90237 12.7071 7.29289Z" fill="#6B4C8D"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - CSS Code -->
+            <div class="jsx-right">
+                <div class="resize-handle resize-handle-left"></div>
+                <div class="css-code-header">
+                    <div class="css-code-bookmark">
+                        <div class="css-code-selection">
+                            <img src="https://www.figma.com/api/mcp/asset/43cf5f74-e35d-4a24-a83b-b4515cece8a4" alt="" class="react-icon-breadcrumb">
+                            <p class="css-file-text">LoginLayout.tsx</p>
+                        </div>
+                        <svg class="bookmark-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.6663 14L7.99967 11.3333L3.33301 14V3.33333C3.33301 2.97971 3.47348 2.64057 3.72353 2.39052C3.97358 2.14048 4.31272 2 4.66634 2H11.333C11.6866 2 12.0258 2.14048 12.2758 2.39052C12.5259 2.64057 12.6663 2.97971 12.6663 3.33333V14Z" stroke="#6B4C8D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <img src="https://www.figma.com/api/mcp/asset/b7819b2e-8f7d-49e2-95d3-97538b6d4c8b" alt="" class="close-icon">
+                </div>
+                <div class="css-code-wrapper">
+                    <pre class="css-code">.login-card {
+  max-width: 420px;
+  padding: 1.75rem 1.75rem 1.5rem;
+  background: #020617;
+  border-radius: 0.9rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-card__button {
+  margin-top: 0.75rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  background: #1f2937;
+  color: #e5e7eb;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
+}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/console-component.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Mockup - Login Demo</title>
+    <link rel="stylesheet" href="css/browser-mockup.css">
+</head>
+<body>
+    <div class="browser-component">
+        <!-- Browser Window -->
+        <div class="browser-window-backdrop">
+            <!-- Window Header -->
+            <div class="window-header">
+            <div class="window-actions">
+                <img src="https://www.figma.com/api/mcp/asset/d82ba7b4-a813-4330-8de5-781ca5e0101f" alt="" class="window-actions-img">
+            </div>
+            <div class="window-title">
+                <img src="https://www.figma.com/api/mcp/asset/abdd04d0-3112-4605-ab69-56cde20ebb8c" alt="" class="window-icon">
+                <p class="window-title-text">My Project</p>
+            </div>
+            </div>
+
+            <!-- Address Bar -->
+            <div class="address-bar-wrapper">
+            <div class="address-bar-content">
+                <div class="address-bar-actions">
+                    <div class="nav-button nav-disabled">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.4">
+                                <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="nav-button nav-disabled">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.4">
+                                <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="refresh-button">
+                        <img src="https://www.figma.com/api/mcp/asset/5f9c0364-bb40-4e86-b2a5-3c4eaefaa762" alt="" class="refresh-icon">
+                    </div>
+                </div>
+                <div class="address-bar">
+                    <img src="https://www.figma.com/api/mcp/asset/0b7b9aa5-70b2-40ec-9704-7c94932b889d" alt="" class="address-icon">
+                    <p class="address-text">localhost:3000</p>
+                </div>
+            </div>
+            <div class="star-button">
+                <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.6">
+                        <path d="M7.99967 1.33331L10.0597 5.50226L14.6663 6.17488L11.333 9.41814L12.1197 14L7.99967 11.8356L3.87967 14L4.66634 9.41814L1.33301 6.17488L5.93967 5.50226L7.99967 1.33331Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+            </div>
+            </div>
+
+            <!-- Browser Content -->
+            <div class="browser-content">
+            <!-- Header -->
+            <div class="acme-header">
+                <img src="https://www.figma.com/api/mcp/asset/37ae795a-e8dd-41b3-9d00-4af19bbe7f2c" alt="" class="acme-logo">
+                <p class="acme-title">Acme</p>
+            </div>
+
+            <!-- Card Container (for transition) -->
+            <div class="card-container">
+                <!-- Initial Login Card (State 1) -->
+                <div class="login-card login-card-initial active">
+                    <h1 class="login-heading">Log in to Acme</h1>
+                    <div class="input-wrapper">
+                        <div class="input-field">
+                            <p class="input-label">Your email</p>
+                            <div class="input-box-initial"></div>
+                        </div>
+                        <div class="input-field">
+                            <p class="input-label">Your password</p>
+                            <div class="input-box-initial"></div>
+                        </div>
+                    </div>
+                    <button class="login-button-initial">Login</button>
+                </div>
+
+                <!-- Updated Login Card (State 2) -->
+                <div class="login-card login-card-updated">
+                    <div class="login-title-wrapper">
+                        <svg width="46" height="40" viewBox="0 0 46 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="login-icon">
+                            <g clip-path="url(#clip0_61_1885)">
+                                <path d="M12.2451 25C17.2571 25.0002 21.4948 28.7107 22.1572 33.6787L23 40H13L11.5586 36.6367C10.6131 34.4307 8.44399 33.0001 6.04395 33H0L4.60645 25H12.2451ZM46 33H39.9561C37.556 33.0001 35.3869 34.4307 34.4414 36.6367L34 40H23L23.8428 33.6787C24.5052 28.7107 28.7429 25.0002 33.7549 25H41.3936L46 33ZM22.6035 9.52441C22.2609 17.7407 15.746 24.3599 7.53613 24.832L4.60645 25L19 0H23L22.6035 9.52441ZM27 0L41.3936 25L38.4648 24.832C30.2549 24.36 23.7391 17.7408 23.3965 9.52441L23 0H27Z" fill="#8947DB"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_61_1885">
+                                    <rect width="46" height="40" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <h1 class="login-heading">Log in to Acme</h1>
+                    </div>
+                    <div class="input-wrapper">
+                        <div class="input-field">
+                            <p class="input-label">Your email</p>
+                            <div class="input-box-updated">
+                                <p class="input-placeholder">name@email.com</p>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <p class="input-label">Your password</p>
+                            <div class="input-box-updated-empty"></div>
+                        </div>
+                    </div>
+                    <button class="login-button-updated">Login</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/browser-mockup.js"></script>
+</body>
+</html>
