@@ -168,9 +168,9 @@ body {
 }
 
 .star-icon {
-    width: 12px;
-    height: 12px;
-    color: #939393;
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
 }
 
 /* Main Content */
