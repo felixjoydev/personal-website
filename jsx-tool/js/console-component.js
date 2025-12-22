@@ -240,6 +240,62 @@ function animateCodeHighlight() {
 })();
 
 // Handle chat send functionality
+// Replace informative-icon <img> Figma reload asset with inline SVG when it appears
+document.addEventListener('DOMContentLoaded', () => {
+    const replaceWithReloadSVG = (target) => {
+        if (!target) return;
+        if (target.tagName && target.tagName.toLowerCase() === 'svg') return;
+        const wrapper = document.createElement('span');
+        wrapper.className = target.className || 'informative-icon';
+        wrapper.innerHTML = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1ZM15.5 12C15.5 13.933 13.933 15.5 12 15.5C11.1505 15.5 10.3705 15.1978 9.76367 14.6934L10.3535 14.1035C10.4965 13.9605 10.5393 13.7454 10.4619 13.5586C10.3845 13.3718 10.2022 13.25 10 13.25H7.5C7.22386 13.25 7 13.4739 7 13.75V16.25C7.00001 16.4522 7.1218 16.6345 7.30859 16.7119C7.49542 16.7893 7.71052 16.7465 7.85352 16.6035L8.34668 16.1113C9.31761 16.9747 10.5971 17.5 12 17.5C15.0376 17.5 17.5 15.0376 17.5 12H15.5ZM12 6.5C8.96244 6.5 6.50002 8.96245 6.5 12H8.5C8.50002 10.067 10.067 8.5 12 8.5C12.8495 8.5 13.6295 8.80227 14.2363 9.30664L13.6465 9.89648C13.5035 10.0395 13.4607 10.2546 13.5381 10.4414C13.6155 10.6282 13.7978 10.75 14 10.75H16.5C16.7761 10.75 17 10.5261 17 10.25V7.75C17 7.54779 16.8782 7.36549 16.6914 7.28809C16.5046 7.2107 16.2895 7.25349 16.1465 7.39648L15.6533 7.88965C14.6823 7.02599 13.4031 6.5 12 6.5Z" fill="url(#paint0_linear_89_9509)"/>
+<defs>
+<linearGradient id="paint0_linear_89_9509" x1="12" y1="1" x2="12" y2="23" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8937F0"/>
+<stop offset="1" stop-color="#611CB8"/>
+</linearGradient>
+</defs>
+</svg>`;
+        target.replaceWith(wrapper);
+    };
+
+    const parent = document.body;
+    const observer = new MutationObserver((mutations) => {
+        for (const m of mutations) {
+            for (const node of m.addedNodes) {
+                if (!(node instanceof HTMLElement)) continue;
+                if (node.matches && node.matches('.informative-icon')) {
+                    if (node.tagName.toLowerCase() === 'img' && /figma\.com\/api\/mcp\/asset/.test(node.src)) {
+                        replaceWithReloadSVG(node);
+                    }
+                }
+                const found = node.querySelectorAll && node.querySelectorAll('.informative-icon');
+                if (found && found.length) {
+                    found.forEach(el => {
+                        if (el.tagName.toLowerCase() === 'img' && /figma\.com\/api\/mcp\/asset/.test(el.src)) {
+                            replaceWithReloadSVG(el);
+                        }
+                    });
+                }
+            }
+            if (m.type === 'attributes' && m.target && m.target.matches && m.target.matches('.informative-icon')) {
+                const t = m.target;
+                if (t.tagName.toLowerCase() === 'img' && /figma\.com\/api\/mcp\/asset/.test(t.src)) {
+                    replaceWithReloadSVG(t);
+                }
+            }
+        }
+    });
+
+    observer.observe(parent, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] });
+
+    const existing = document.querySelector('.informative-icon');
+    if (existing && existing.tagName.toLowerCase() === 'img' && /figma\.com\/api\/mcp\/asset/.test(existing.src)) {
+        replaceWithReloadSVG(existing);
+    }
+});
+
 function handleChatSend() {
     // Notify parent window (demo.html) that send was clicked
     if (window.parent !== window) {
