@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #020202;
+}
+
+/* Stack that groups the hero, the image+controls, and the footer */
+.page-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* no gap between the stacked sections */
+    padding: 40px 0 0; /* 40px top padding, 0 bottom padding */
+    box-sizing: border-box;
+}
+
+/* Christmas tree layout and transitions */
+.ct-main {
+    flex: 1 1 auto; /* fill remaining viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* remove extra top padding so hero and image are closer */
+    box-sizing: border-box;
+    overflow: visible; /* allow content to determine height */
+}
+
+/* Hero SVG wrapper: center and make the inline SVG responsive */
+.page-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0; /* use page-stack's 40px top padding; remove local top padding */
+    margin-bottom: 12px; /* pull the hero closer to the image */
+    box-sizing: border-box;
+    flex: 0 0 auto; /* don't grow — main fills the rest */
+}
+.page-hero svg {
+    /* hide the inline SVG in favor of the external file */
+    display: none;
+}
+
+.page-hero img.hero-svg {
+    display: block;
+    width: 302px; /* default intrinsic size */
+    max-width: 90%;
+    height: auto;
+}
+
+@media (min-width: 720px) {
+    .page-hero img.hero-svg {
+        max-width: 640px;
+    }
+}
+
+/* Hero image opacity when icons toggle */
+.hero-svg {
+    transition: opacity 200ms ease;
+    opacity: 1;
+}
+.hero-svg.dimmed {
+    opacity: 0.5;
+}
+
+/* Footer bottom link */
+.ct-footer {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0 0; /* remove bottom padding */
+    box-sizing: border-box;
+}
+.bottom-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    text-decoration: none;
+}
+.bottom-link svg {
+    display: block;
+    width: 30px;
+    height: 37px;
+}
+.bottom-link:focus-visible {
+    outline: 2px solid rgba(255,255,255,0.12);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+.tree-container {
+    width: min(640px, 95vw);
+    /* allow natural height based on image intrinsic size */
+    height: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+/* together-wrapper groups the image wrapper and its controls so it can participate
+   as one flex child when stacked with the hero and footer */
+.together-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-width: 640px;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto; /* let intrinsic image height determine wrapper height */
+    object-fit: contain;
+    display: block;
+    position: static; /* keep base image in flow so wrapper gains height */
+    z-index: 1;
+}
+
+.image-wrapper img.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 260ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.image-wrapper img.overlay.show {
+    opacity: 1;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+.image-wrapper .controls {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(20px, 8%, 140px); /* adapt to image height */
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: auto;
+}
+
+
+/* Toggle (Figma-inspired) */
+#tree-toggle {
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: rgba(255,255,255,0.04);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    backdrop-filter: blur(10px) saturate(120%);
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.06);
+    cursor: pointer;
+    color: white;
+}
+
+#tree-toggle .icon {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+#tree-toggle .icon svg { display: block; width: 24px; height: 24px; }
+
+#tree-toggle .divider {
+    width: 1px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+    align-self: stretch;
+    height: auto;
+}
+
+/* Icon states: active 100% opacity, inactive 50% */
+#tree-toggle .icon svg {
+    opacity: 0.5;
+    transition: opacity 200ms ease;
+}
+
+#tree-toggle .icon.active svg {
+    opacity: 1;
+}
+
+/* Some inline SVGs (from Figma) include a <g opacity="0.5"> wrapper.
+     Override that so the 'active' class can restore full opacity. */
+#tree-toggle .icon-on svg g {
+    opacity: 0.5;
+    transition: opacity 200ms ease;
+}
+
+#tree-toggle .icon-on.active svg g {
+    opacity: 1 !important;
+}
+
+/* Ensure the control does not change color when pressed */
+#tree-toggle[aria-pressed="true"] {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.06);
+}
+
+/* Remove center switch styles - visuals are now driven by icon opacity */
+
+@media (prefers-reduced-motion: reduce) {
+    .image-wrapper img.overlay {
+        transition: none;
+    }
+}
