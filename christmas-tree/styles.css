@@ -234,3 +234,31 @@ body {
         transition: none;
     }
 }
+
+/* Mobile tweaks: bring controls down 30px and make footer sticky */
+@media (max-width: 719px) {
+    /* Move the controls visually 30px down without changing layout behavior */
+    .image-wrapper .controls {
+        /* existing transform centers horizontally; add Y offset of 30px */
+        transform: translate(-50%, 30px);
+    }
+
+    /* Footer pinned to bottom of viewport on mobile */
+    .ct-footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        background: linear-gradient(0deg, rgba(2,2,2,0.98), rgba(2,2,2,0.85));
+    }
+
+    /* Prevent content from being covered by the fixed footer. Adjust to match footer height. */
+    .page-stack {
+        padding-bottom: 80px;
+    }
+}
