@@ -32,7 +32,10 @@ body {
     align-items: center;
     width: 100%;
     padding: 0; /* use page-stack's 40px top padding; remove local top padding */
-    margin-bottom: 12px; /* pull the hero closer to the image */
+    /* visually shift down without affecting layout of siblings */
+    position: relative;
+    top: 40px; /* adjust this value as needed */
+    margin-bottom: 0; /* remove extra bottom margin to avoid added gap */
     box-sizing: border-box;
     flex: 0 0 auto; /* don't grow — main fills the rest */
 }
