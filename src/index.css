@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #F2F2F2;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+/* Description section */
+.description {
+  margin-top: 48px;
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: 1.6;
+  color: #888787;
+}
+
+.description p + p {
+  margin-top: 1em;
+}
+
+.text-emphasis {
+  color: #141414;
+}
+
+a.text-emphasis {
+  text-decoration: none;
+}
+
+a.text-emphasis:hover {
+  opacity: 0.7;
+}
+
+.profile-trigger {
+  position: relative;
+  display: inline;
+  z-index: 11;
+}
+
+.avatar-name {
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 20;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  letter-spacing: -0.048px;
+  color: #141414;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+}
+
+.profile-link > * {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-link-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #F2F2F2;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.profile-link > img {
+  width: 14px;
+  height: 14px;
+  max-width: 14px;
+  max-height: 14px;
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+
+.profile-link-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-link-icon {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  flex-shrink: 0;
+}
+
+.footer-profile-trigger {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.profile-dropdown--up {
+  top: auto;
+  bottom: calc(100% + 8px);
+  left: 0;
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-right: 6px;
+  position: relative;
+  top: -1px;
+}
+
+/* Products section */
+.products {
+  margin-top: 78px;
+}
+
+.products-label {
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: normal;
+  color: #888787;
+}
+
+.products-list {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.product-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  cursor: not-allowed;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card.active {
+  cursor: pointer;
+}
+
+.hover-bg {
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  left: -50vw;
+  right: -50vw;
+  background-color: #fff;
+  z-index: 0;
+}
+
+.product-card > *:not(.hover-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.dim-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(242, 242, 242, 0.7);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.product-card.hovered {
+  position: relative;
+  z-index: 11;
+}
+
+.contact-row.hovered {
+  position: relative;
+  z-index: 11;
+}
+
+.product-info {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.product-logo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.product-logo--rounded {
+  border-radius: 12px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-name {
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: normal;
+  color: #141414;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 23px;
+  padding: 0 8px;
+  border: 1px solid #dedede;
+  border-radius: 100px;
+  background: #F2F2F2;
+  box-shadow: inset 0px 2px 2px 0px white;
+  font-size: 12px;
+  letter-spacing: -0.036px;
+  line-height: normal;
+  color: #888787;
+}
+
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.badge .dot--green {
+  background-color: #4CAF50;
+}
+
+.badge .dot--gray {
+  background-color: #888787;
+}
+
+.badge .dot--yellow {
+  background-color: #FFC107;
+}
+
+.product-description {
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: normal;
+  color: #888787;
+}
+
+.external-link {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.external-link img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Contact section */
+.contact {
+  margin-top: 56px;
+}
+
+.contact-list {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-row .hover-bg {
+  top: -8px;
+  bottom: -8px;
+}
+
+.contact-row > *:not(.hover-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-label {
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: normal;
+  color: #000;
+}
+
+.contact-value {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.contact-value a {
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: normal;
+  color: #000;
+  text-decoration: none;
+}
+
+.contact-value a:hover {
+  opacity: 0.7;
+}
+
+/* Footer */
+footer {
+  margin-top: 56px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 12px;
+  letter-spacing: -0.036px;
+  line-height: normal;
+  color: #888787;
+}
+
+.signature {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.signature img {
+  width: 107px;
+  height: auto;
+}
+
+.signature-text {
+  font-size: 16px;
+  letter-spacing: -0.048px;
+  line-height: normal;
+  color: #888787;
+}
+
+.signature-text strong {
+  color: #000;
+  font-weight: 400;
+}
