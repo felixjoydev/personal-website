@@ -6,7 +6,7 @@
   <title>SuperGoal · World Cup 2026 in your menu bar</title>
   <meta name="description" content="The little Mac app that keeps World Cup 2026 in your menu bar. Live scores, every fixture, all twelve groups and your favorite teams, behind a pane of frosted glass." />
   <link rel="icon" type="image/svg+xml" href="/assets/supergoal-logo.svg" />
-  <link rel="apple-touch-icon" href="/assets/supergoal-logo.svg" />
+  <link rel="apple-touch-icon" href="/assets/supergoal-logo.png" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="SuperGoal · World Cup 2026 in your menu bar" />
@@ -342,13 +342,13 @@
     @media(max-width:560px){
       .wrap{padding:0 18px}
       .hero{padding-top:118px;padding-bottom:8px}
-      .stack{gap:80px;padding:0}
+      .stack{gap:100px;padding:0}
       .feat-row .media{border-radius:20px}
       .feat-row .caption{margin-top:18px}
-      nav{flex-wrap:nowrap;white-space:nowrap;gap:2px}
-      nav .links{gap:0}
-      nav .links a{padding:8px 11px;font-size:13.5px}
-      nav .nav-cta{padding:9px 13px}
+      nav{padding:8px 18px;gap:0}
+      nav .brand{display:flex}
+      nav .links{display:none}
+      nav .nav-cta{display:none}
       .menubar .mb-menus{display:none}
       .mp-alert{display:none}
       .sec-head h2{font-size:clamp(25px,6.6vw,40px)}
@@ -357,6 +357,14 @@
       .shot{padding:0}
       .intro-frame{padding:0;border-radius:22px}
       .intro-frame video{border-radius:22px}
+      /* roomier gaps before the apology; tighter after it, and trim the bottom */
+      .note{padding-top:96px;padding-bottom:16px}
+      .closing{padding-top:52px;padding-bottom:44px}
+      footer{padding:30px 0 40px}
+      /* center the whole footer on mobile */
+      .foot{flex-direction:column;align-items:center;text-align:center;gap:16px}
+      .foot-right{justify-content:center}
+      .footer-coffee{transform:scale(.78);transform-origin:center;margin-left:0}
     }
     @media(prefers-reduced-motion:reduce){
       .reveal{opacity:1;transform:none;transition:none}
@@ -366,7 +374,7 @@
 </head>
 <body>
   <nav aria-label="Primary">
-    <a class="brand" href="#top"><img src="/assets/supergoal-logo.svg" alt="" />SuperGoal</a>
+    <a class="brand" href="#top"><img src="/assets/supergoal-logo.png" alt="" />SuperGoal</a>
     <div class="links">
       <a href="#features">Features</a>
       <a href="#apology">Apology</a>
@@ -395,7 +403,7 @@
         <!-- Intro video replaces the menu-bar mock below. Original mock kept (commented) for reference.
         <div class="device" role="img" aria-label="SuperGoal's frosted panel dropping down from the Mac menu bar, showing live World Cup fixtures">
           <div class="menubar">
-            <span class="mb-brand"><img src="/assets/supergoal-logo.svg" alt="" />SuperGoal</span>
+            <span class="mb-brand"><img src="/assets/supergoal-logo.png" alt="" />SuperGoal</span>
             <span class="mb-menus"><span>File</span><span>View</span><span>Help</span></span>
             <span class="mb-right">
               <span class="mb-score"><span class="dot"></span>NED <span class="mono">2–2</span> JPN</span>
@@ -521,7 +529,7 @@
     <!-- CLOSING -->
     <section class="closing wrap">
       <div class="card reveal">
-        <img class="mark" src="/assets/supergoal-logo.svg" width="64" height="64" alt="" style="width:64px;height:64px;margin:0 auto 22px;border-radius:17px" />
+        <img class="mark" src="/assets/supergoal-logo.png" width="64" height="64" alt="" style="width:64px;height:64px;margin:0 auto 22px;border-radius:17px" />
         <h2>It's almost kickoff.</h2>
         <p>A little thing I made for the best month in football. I hope you love it too.</p>
         <a class="cta-main" href="/downloads/SuperGoal.dmg" download>
