@@ -5,10 +5,10 @@ const products = [
   {
     id: 'supergoal',
     name: 'SuperGoal',
-    logo: '/assets/supergoal-logo.svg',
+    logo: '/assets/supergoal-logo.png',
     roundedLogo: true,
-    badge: 'IN PROGRESS',
-    badgeColor: 'yellow',
+    badge: 'LAUNCHED',
+    badgeColor: 'green',
     description: 'World Cup 2026 in your menu bar',
     link: '/supergoal/',
   },
