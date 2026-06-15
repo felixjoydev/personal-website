@@ -3,6 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const products = [
   {
+    id: 'supergoal',
+    name: 'SuperGoal',
+    logo: '/assets/supergoal-logo.svg',
+    roundedLogo: true,
+    badge: 'IN PROGRESS',
+    badgeColor: 'yellow',
+    description: 'World Cup 2026 in your menu bar',
+    link: '/supergoal/',
+  },
+  {
     id: 'guestbook',
     name: 'Guestbook',
     logo: '/assets/guestbook-logo.svg',
