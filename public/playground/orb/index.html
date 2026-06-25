@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <base href="/playground/orb/">
+    <title>Orb — Felix Joy</title>
+    <meta name="description" content="A living globe of movie posters. Spin the world of film by genre, type and rating.">
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init zr Wr fi Br Gr ci Nr Hr capture Ui calculateEventProperties Kr register register_once register_for_session unregister unregister_for_session Zr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Xr Jr createPersonProfile Qr jr ts opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Vr debug O Yr getPageViewId captureTraceFeedback captureTraceMetric Or".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_6arqZ8ehO0aAOsAhWczSwMGVf4Bia4dRkGjZDoBVUW7', {
+            api_host: 'https://eu.i.posthog.com',
+            defaults: '2025-11-30',
+            person_profiles: 'identified_only',
+        })
+    </script>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "react": "https://esm.sh/react@19.2.0",
+        "react/jsx-runtime": "https://esm.sh/react@19.2.0/jsx-runtime?external=react",
+        "react/jsx-dev-runtime": "https://esm.sh/react@19.2.0/jsx-dev-runtime?external=react",
+        "react-dom": "https://esm.sh/react-dom@19.2.0?external=react",
+        "react-dom/client": "https://esm.sh/react-dom@19.2.0/client?external=react,react-dom",
+        "motion/react": "https://esm.sh/motion@12.23.12/react?external=react,react-dom",
+        "htm": "https://esm.sh/htm@3.1.1"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- WebGL globe renders here -->
+    <canvas id="scene" aria-hidden="true"></canvas>
+
+    <!-- OpenGlass displacement filters are generated per-surface by glass.js and appended to
+         this off-screen defs host. (https://github.com/naturaldesignapp/openglass) -->
+    <svg class="lg-defs" aria-hidden="true" width="0" height="0"></svg>
+
+    <!-- Top bar -->
+    <header class="topbar">
+        <a class="wordmark" href="https://felixjoy.me" aria-label="Felix Joy — home">
+            <svg width="30" height="30" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M23.182 0.0361365C36.6835 -0.691477 48.2223 9.65649 48.9632 23.1572C49.7044 36.6584 39.3667 48.207 25.8666 48.9609C12.3478 49.7161 0.779578 39.3623 0.0374639 25.8428C-0.704424 12.3233 9.66168 0.764832 23.182 0.0361365ZM19.7132 36.8418C16.4054 37.2544 19.3068 41.4184 20.3461 42.7988C22.7152 45.9458 24.7227 47.3765 27.7181 43.9277C28.9258 42.539 30.1548 40.7927 30.7045 39.0254C31.1897 37.4653 30.0645 36.6576 28.6 36.8721C26.782 37.1379 24.8492 37.2186 23.015 37.1211C22.4998 37.0975 21.9847 37.0579 21.472 37.002C21.0238 36.9492 20.1169 36.8059 19.7132 36.8418ZM44.6605 30.5127C44.2496 30.651 43.9772 30.8418 43.6214 31.0908C42.8311 31.6433 42.0397 32.2333 41.1986 32.709C40.2925 33.2182 39.3648 33.6881 38.4183 34.1182C37.4798 34.5555 36.3889 34.9854 35.5746 35.6221C34.961 36.1021 34.5115 36.8651 34.1673 37.5479C33.5653 38.8111 33.0476 40.132 32.3461 41.3477C32.0412 41.879 31.7142 42.3964 31.3646 42.8994C31.0096 43.4111 29.4791 45.2241 31.017 45.2822C31.8932 45.0923 33.0743 44.5878 33.891 44.2012C37.5986 42.485 40.7363 39.7419 42.933 36.2969C43.3291 35.6805 46.5633 30.4767 44.6605 30.5127ZM4.05797 30.5127C3.39887 30.9472 3.81326 31.7175 4.02184 32.3135C4.60862 33.9909 5.55331 35.5698 6.57555 37.0166C8.88603 40.3094 12.0635 42.8983 15.7552 44.4961C16.3637 44.7556 17.6557 45.3487 18.2699 45.2393C18.9291 44.8355 18.5407 44.1747 18.1918 43.7022C16.8579 41.9013 15.7657 39.9954 14.9056 37.9268C14.4714 36.8822 13.8734 35.8318 12.8695 35.2441C10.6852 33.9653 8.26849 33.1932 6.21227 31.6689C5.68134 31.2756 4.69648 30.4779 4.05797 30.5127ZM31.7552 16.8145C29.8931 15.3001 25.5787 14.8517 23.2562 15.0566C21.3252 15.2022 18.0441 15.6749 16.8011 17.2236C15.0663 19.3856 14.8318 23.856 15.0629 26.5137C15.2183 28.3007 15.7924 31.399 17.1918 32.499C19.3106 34.1648 23.2527 34.3709 25.8148 34.2246C27.7233 34.0691 30.97 33.6245 32.1957 32.0703C33.9244 29.8779 34.1641 25.3492 33.9027 22.6465C33.7248 20.8072 33.1922 17.9831 31.7552 16.8145ZM37.5853 17.9678C36.9526 18.1388 36.4579 18.5495 36.4681 19.2666C36.4805 20.1324 36.6672 21.0209 36.7523 21.8906C36.9042 23.5146 36.9216 25.1485 36.8041 26.7754C36.7721 27.1983 36.7373 27.6622 36.683 28.0527C36.5634 28.9118 36.0886 30.7131 37.1498 31.1914C38.5418 31.8178 41.2671 29.9498 42.3636 29.2051C43.7392 28.1937 45.7139 26.7562 45.9779 24.9561C46.105 24.0898 45.739 23.279 45.223 22.6035C44.0234 21.0336 40.0475 18.2182 38.0765 17.9727C37.9107 17.952 37.7515 17.9549 37.5853 17.9678ZM11.1478 17.9336C8.96434 18.1407 5.45742 20.74 4.00133 22.3594C1.46973 25.175 4.49101 27.7836 6.83239 29.3467C8.00642 30.1134 12.425 33.0513 12.5316 29.7744C12.5509 29.1775 12.3193 28.1367 12.2484 27.4893C12.0837 25.9706 12.052 24.4402 12.1527 22.916C12.1902 22.358 12.2439 21.8009 12.3138 21.2461C12.4652 20.0202 13.0556 18.0523 11.1478 17.9336ZM30.7601 3.84571C30.2262 4.1146 30.2211 4.57955 30.5297 5.03223C31.8092 6.9109 32.9625 8.72283 33.8236 10.8418C34.2322 11.8468 34.8264 13.0842 35.765 13.7168C37.4328 14.713 39.3046 15.3958 40.9847 16.4063C41.4744 16.7068 41.9567 17.0208 42.43 17.3467C43.0178 17.7534 44.1741 18.6881 44.85 18.7705C45.489 18.5219 45.3072 17.919 45.1185 17.3945C44.8295 16.5917 44.5023 15.7992 44.1341 15.0293C41.7483 9.95737 37.4423 6.04347 32.1664 4.15137C31.759 4.00877 31.1919 3.81772 30.7601 3.84571ZM17.8968 3.85547C17.0337 4.02461 15.8421 4.51121 15.0345 4.89258C11.4966 6.55978 8.48555 9.16824 6.33141 12.4326C5.63951 13.4621 3.50503 17.2024 3.7445 18.3457C3.77516 18.4918 3.84403 18.6281 3.97887 18.7031C4.13351 18.7891 4.2939 18.7548 4.45836 18.7217C4.98807 18.5013 5.67957 17.9484 6.17223 17.6016C6.75837 17.1854 7.36405 16.7968 7.98668 16.4375C9.73312 15.441 11.9951 14.6767 13.5482 13.4814C14.5619 12.7012 15.6607 9.87508 16.3177 8.64258C16.682 7.94971 17.0783 7.27393 17.5043 6.61719C17.8562 6.06803 18.2923 5.46241 18.5609 4.86817C18.8223 4.28977 18.5867 3.79956 17.8968 3.85547ZM24.2396 3.17969C22.6742 3.43519 21.4153 4.92964 20.5248 6.21582C19.631 7.50676 18.1903 9.61681 18.2425 11.2412C18.266 11.9637 19.0878 12.4624 19.7591 12.4668C20.4388 12.4712 21.1346 12.3319 21.8255 12.2617C22.8167 12.1655 23.8122 12.1228 24.808 12.1338C25.4816 12.1449 26.1547 12.1805 26.8255 12.2402C27.8378 12.3344 29.4354 12.7697 30.2953 12.0635C30.5282 11.8824 30.7943 11.3299 30.7523 11.0342C30.4181 8.69415 28.6713 6.28578 27.1039 4.56934C26.3515 3.74562 25.3549 3.10538 24.2396 3.17969Z" fill="currentColor"/>
+            </svg>
+        </a>
+    </header>
+
+    <!-- Intro blurb + attribution, pinned bottom-left -->
+    <div class="intro">
+        <p class="intro__desc">A living globe of movies. Filter, <span class="intro__cta">or hit <span class="intro__feat">Surprise me</span>.</span></p>
+        <p class="intro__by">
+            Made by
+            <a class="intro__author" href="https://felixjoy.me" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/logo.svg" alt="" width="13" height="15">
+                Felix Joy
+            </a>
+        </p>
+    </div>
+
+    <!-- Right rail: theme + view, as vertical segmented tabs -->
+    <div class="rail">
+        <!-- Light / Dark -->
+        <div class="vseg" id="theme-seg" role="radiogroup" aria-label="Theme">
+            <span class="vseg-ind"></span>
+            <button class="vseg-btn" data-theme="light" type="button" role="radio" aria-checked="true" aria-label="Light mode" title="Light mode">
+                <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <button class="vseg-btn" data-theme="dark" type="button" role="radio" aria-checked="false" aria-label="Dark mode" title="Dark mode">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+
+        <!-- Globe view (three options). Extra experimental views are kept in the code below —
+             re-enable any by un-commenting its button. -->
+        <div class="vseg" id="view-seg" role="radiogroup" aria-label="Globe view">
+            <span class="vseg-ind"></span>
+            <button class="vseg-btn is-active" data-view="globe" type="button" role="radio" aria-checked="true" aria-label="Full globe" title="Full globe">
+                <svg width="18" height="18" viewBox="0 0 24 24"><mask id="globe-grid"><rect width="24" height="24" fill="#fff"/><ellipse cx="12" cy="12" rx="3.6" ry="8.5" fill="none" stroke="#000" stroke-width="1.5"/><line x1="3.5" y1="12" x2="20.5" y2="12" stroke="#000" stroke-width="1.5"/></mask><circle cx="12" cy="12" r="8.5" fill="currentColor" mask="url(#globe-grid)"/></svg>
+            </button>
+            <button class="vseg-btn" data-view="near" type="button" role="radio" aria-checked="false" aria-label="Inside the globe" title="Inside the globe">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="5.2" height="5.2" rx="1.3"/><rect x="9.4" y="3" width="5.2" height="5.2" rx="1.3"/><rect x="15.8" y="3" width="5.2" height="5.2" rx="1.3"/><rect x="3" y="9.4" width="5.2" height="5.2" rx="1.3"/><rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.3"/><rect x="15.8" y="9.4" width="5.2" height="5.2" rx="1.3"/><rect x="3" y="15.8" width="5.2" height="5.2" rx="1.3"/><rect x="9.4" y="15.8" width="5.2" height="5.2" rx="1.3"/><rect x="15.8" y="15.8" width="5.2" height="5.2" rx="1.3"/></svg>
+            </button>
+            <button class="vseg-btn" data-view="row" type="button" role="radio" aria-checked="false" aria-label="Single row" title="Single row">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><g opacity="0.28"><rect x="3" y="3" width="5.2" height="5.2" rx="1.3"/><rect x="9.4" y="3" width="5.2" height="5.2" rx="1.3"/><rect x="15.8" y="3" width="5.2" height="5.2" rx="1.3"/></g><rect x="3" y="9.4" width="5.2" height="5.2" rx="1.3"/><rect x="9.4" y="9.4" width="5.2" height="5.2" rx="1.3"/><rect x="15.8" y="9.4" width="5.2" height="5.2" rx="1.3"/><g opacity="0.28"><rect x="3" y="15.8" width="5.2" height="5.2" rx="1.3"/><rect x="9.4" y="15.8" width="5.2" height="5.2" rx="1.3"/><rect x="15.8" y="15.8" width="5.2" height="5.2" rx="1.3"/></g></svg>
+            </button>
+            <!-- Hidden experimental views (kept in code; un-comment a button to re-enable it):
+            <button class="vseg-btn" data-view="warp" type="button" role="radio" aria-checked="false" aria-label="Warp tunnel" title="Warp tunnel">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><rect x="7.5" y="7.5" width="9" height="9" rx="2"/><rect x="10.75" y="10.75" width="2.5" height="2.5" rx="0.8"/></svg>
+            </button>
+            <button class="vseg-btn" data-view="helix" type="button" role="radio" aria-checked="false" aria-label="Helix" title="Helix">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 3c6 3 6 6 0 9s-6 6 0 9"/><path d="M15 3c-6 3-6 6 0 9s6 6 0 9"/></svg>
+            </button>
+            <button class="vseg-btn" data-view="spot" type="button" role="radio" aria-checked="false" aria-label="Spotlight" title="Spotlight">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>
+            </button>
+            <button class="vseg-btn" data-view="tour" type="button" role="radio" aria-checked="false" aria-label="Cinematic tour" title="Cinematic tour">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor" stroke="none"/></svg>
+            </button>
+            <button class="vseg-btn" data-view="neb" type="button" role="radio" aria-checked="false" aria-label="Nebula" title="Nebula">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="7" cy="8" r="1.7"/><circle cx="14.5" cy="6" r="1.1"/><circle cx="17.5" cy="11.5" r="1.9"/><circle cx="9" cy="14.5" r="1.4"/><circle cx="15.5" cy="16.5" r="1.5"/><circle cx="11.5" cy="11" r="1"/></svg>
+            </button>
+            -->
+        </div>
+    </div>
+
+    <!-- Hover tooltip (positioned by JS) -->
+    <div id="tooltip" class="tooltip" role="status" aria-live="off" hidden></div>
+
+    <!-- Status / loading / empty pill -->
+    <div id="status" class="status" role="status" aria-live="polite" hidden></div>
+
+    <!-- Bottom controls bar -->
+    <div class="controls" id="controls">
+        <!-- Row 1 (filters) / Row 2 (sliders + CTA). These wrappers are display:contents on desktop
+             (bar lays out exactly as before) and become two rows only on mobile. -->
+        <div class="controls__row">
+            <div class="seg" id="type-seg" role="tablist" aria-label="Title type">
+                <span class="seg-ind" aria-hidden="true"></span>
+                <button class="seg-btn is-active" data-type="all" role="tab">All</button>
+                <button class="seg-btn" data-type="movie" role="tab">Movies</button>
+                <button class="seg-btn" data-type="tv" role="tab">TV</button>
+            </div>
+
+            <!-- Genre + Language: React + motion/react dropdowns mount here (dropdowns.js) -->
+            <div id="genre-mount" class="dd-mount"></div>
+            <div id="lang-mount" class="dd-mount"></div>
+        </div>
+
+        <div class="controls__row">
+            <label class="rating" aria-label="Minimum rating">
+                <span class="rating-icon" aria-hidden="true">★</span>
+                <input id="rating" type="range" min="0" max="8.5" step="0.5" value="0">
+                <span class="rating-val" id="rating-val">Any</span>
+            </label>
+
+            <label class="count" aria-label="Number of posters">
+                <svg class="count-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                <input id="count" type="range" min="24" max="150" step="6" value="96">
+                <span class="count-val" id="count-val">96</span>
+            </label>
+
+            <button class="surprise" id="surprise" type="button" aria-label="Surprise me — refill with random gems">
+                <span class="surprise-spark" aria-hidden="true"></span>
+                <span class="surprise-label">Surprise me</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ── Right-side control panel — commented out for now (kept for revert). To restore:
+         uncomment #panel-mount + the panel.js script tag, comment out the controls bar above +
+         the dropdowns.js script tag, and switch the movorb.js controls wiring back. ──
+    <div id="panel-mount"></div>
+    -->
+
+    <!-- Focus / lightbox: globe blurs behind, poster lifts into a liquid-glass card.
+         Left = holographic poster, right = title, synopsis, where-to-watch + IMDb. -->
+    <div id="focus" class="focus" hidden>
+        <div class="focus__scrim" id="focus-scrim"></div>
+        <div class="focus__card" role="dialog" aria-modal="true" aria-labelledby="focus-title">
+            <!-- Glass panel — it clips itself AND the text inside it, so as it wipes open the text is
+                 revealed by the advancing edge (not sitting there beforehand). A spacer reserves the
+                 poster's column; the real poster floats on top (below) and isn't clipped. -->
+            <div class="focus__panel">
+                <div class="focus__poster-slot" aria-hidden="true"></div>
+                <div class="focus__info">
+                    <h2 class="focus__name" id="focus-title"></h2>
+                    <p class="focus__sub" id="focus-sub"></p>
+                    <p class="focus__synopsis" id="focus-synopsis" hidden></p>
+                    <div class="focus__watch" id="focus-watch" hidden>
+                        <span class="focus__watch-label">Where to watch</span>
+                        <div class="focus__providers" id="focus-providers"></div>
+                    </div>
+                    <a class="focus__imdb" id="focus-imdb" target="_blank" rel="noopener noreferrer">
+                        <span id="focus-link-label">View on IMDb</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Poster floats above the panel (not clipped) and FLIPs out of / back into the globe. -->
+            <div class="focus__poster-wrap" id="focus-poster-wrap">
+                <div class="focus__poster" id="focus-poster">
+                    <img id="focus-img" alt="" />
+                    <div class="focus__holo" aria-hidden="true"></div>
+                    <div class="focus__glare" aria-hidden="true"></div>
+                </div>
+            </div>
+        </div>
+        <p class="focus__hint" aria-hidden="true">Press <kbd>Esc</kbd> to close</p>
+    </div>
+
+    <script type="module" src="movorb.js"></script>
+    <script type="module" src="dropdowns.js"></script>
+    <script type="module" src="glass.js"></script>
+    <!-- Right-side control panel — commented out: <script type="module" src="panel.js"></script> -->
+</body>
+</html>

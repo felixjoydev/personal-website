@@ -48,3 +48,8 @@ dumpster/
 dist
 dist-ssr
 *.local
+
+# Env / secrets (TMDB_KEY etc.)
+.env
+.env.*
+!.env.example
