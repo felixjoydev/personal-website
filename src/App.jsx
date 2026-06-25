@@ -50,6 +50,24 @@ const products = [
   },
 ]
 
+const playground = [
+  {
+    id: 'orb',
+    name: 'Orb',
+    logo: '/assets/orb-logo.svg',
+    roundedLogo: true,
+    description: 'A living globe of movies',
+    link: '/playground/orb/',
+  },
+  {
+    id: 'typewriter',
+    name: 'Typewriter',
+    logo: '/assets/typewriter-logo.svg',
+    description: 'A minimal typing speed test',
+    link: '/playground/typewriter/',
+  },
+]
+
 const contacts = [
   {
     id: 'email',
@@ -209,6 +227,59 @@ function App() {
                             <span className={`dot dot--${product.badgeColor}`}></span>{' '}
                             {product.badge}
                           </span>
+                        </div>
+                        <p className="product-description">{product.description}</p>
+                      </div>
+                    </div>
+                    {product.link && (
+                      <span className="external-link">
+                        <img src="/assets/external-link.svg" alt={`Visit ${product.name}`} />
+                      </span>
+                    )}
+                  </CardTag>
+                )
+              })}
+            </div>
+          </section>
+
+          <section className="products">
+            <p className="products-label">Playground</p>
+            <div
+              className="products-list"
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              {playground.map((product) => {
+                const CardTag = product.link ? 'a' : 'div'
+                const linkProps = product.link
+                  ? { href: product.link, target: '_blank', rel: 'noopener noreferrer' }
+                  : {}
+                const isHovered = hoveredItem === product.id
+
+                return (
+                  <CardTag
+                    key={product.id}
+                    className={`product-card${product.link ? ' active' : ''}${isHovered ? ' hovered' : ''}`}
+                    onMouseEnter={() => setHoveredItem(product.id)}
+                    {...linkProps}
+                  >
+                    {isHovered && (
+                      <motion.div
+                        className="hover-bg"
+                        layoutId="hover-highlight"
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                    <div className="product-info">
+                      <img className={`product-logo${product.roundedLogo ? ' product-logo--rounded' : ''}`} src={product.logo} alt={product.name} />
+                      <div className="product-details">
+                        <div className="product-name-row">
+                          <span className="product-name">{product.name}</span>
+                          {product.badge && (
+                            <span className="badge">
+                              <span className={`dot dot--${product.badgeColor}`}></span>{' '}
+                              {product.badge}
+                            </span>
+                          )}
                         </div>
                         <p className="product-description">{product.description}</p>
                       </div>
