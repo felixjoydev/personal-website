@@ -46,6 +46,18 @@ a.text-emphasis:hover {
   opacity: 0.7;
 }
 
+/* Inline body link (e.g. the "book a call" CTA in the description). */
+.text-link {
+  color: #141414;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s ease;
+}
+.text-link:hover {
+  opacity: 0.7;
+}
+
 .profile-trigger {
   position: relative;
   display: inline;

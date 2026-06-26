@@ -89,6 +89,13 @@ const contacts = [
     href: 'https://linkedin.com/in/felixjoydc',
     external: true,
   },
+  {
+    id: 'call',
+    label: 'Book a call',
+    value: '15-min meeting',
+    href: 'https://cal.com/felix-joy-zkizzh/15-min-meeting?overlayCalendar=true',
+    external: true,
+  },
 ]
 
 function App() {
@@ -188,6 +195,10 @@ function App() {
               Over the years I have designed for enterprises and startups alike, shipping both
               B2C and B2B products. On the side, I build small products of my own to keep my
               craft sharp.
+            </p>
+            <p>
+              Currently <span className="text-emphasis">available for work</span> —{' '}
+              <a className="text-link" href="https://cal.com/felix-joy-zkizzh/15-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer">book a call</a>.
             </p>
           </section>
 
