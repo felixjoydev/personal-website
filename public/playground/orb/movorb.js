@@ -786,6 +786,7 @@ function closeFocus() {
   }, FOCUS_TIMING.teardown)
 }
 document.getElementById('focus-scrim').addEventListener('click', closeFocus)
+document.getElementById('focus-close').addEventListener('click', closeFocus) // mobile-only button (hidden on desktop via CSS)
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && !focusEl.hidden) closeFocus() })
 
 /* ════════════════════════════  Render loop  ════════════════════════════ */
