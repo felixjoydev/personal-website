@@ -48,7 +48,7 @@ a.text-emphasis:hover {
 
 /* Inline body link (e.g. the "book a call" CTA in the description). */
 .text-link {
-  color: #141414;
+  color: #F36A30;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;

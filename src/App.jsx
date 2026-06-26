@@ -197,7 +197,7 @@ function App() {
               craft sharp.
             </p>
             <p>
-              Currently <span className="text-emphasis">available for work</span> —{' '}
+              Currently <span className="text-emphasis">available for work</span> -{' '}
               <a className="text-link" href="https://cal.com/felix-joy-zkizzh/15-min-meeting?overlayCalendar=true" target="_blank" rel="noopener noreferrer">book a call</a>.
             </p>
           </section>
